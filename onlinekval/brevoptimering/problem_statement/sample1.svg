@@ -1,0 +1,145 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="632pt" height="268pt" viewBox="0.00 0.00 631.58 268.31">
+<g id="graph0" class="graph" transform="scale(1 1) rotate(0) translate(4 264.3117)">
+<title>sample</title>
+<polygon fill="#ffffff" stroke="transparent" points="-4,4 -4,-264.3117 627.5842,-264.3117 627.5842,4 -4,4"></polygon>
+<!-- &#45;1 -->
+<!-- 2 -->
+<g id="node5" class="node">
+<title>2</title>
+<ellipse fill="none" stroke="#000000" cx="147.7349" cy="-39.1307" rx="39.2619" ry="39.2619"></ellipse>
+<text text-anchor="start" x="142.2349" y="-38.3307" font-family="Times,serif" font-weight="bold" font-size="22.00" fill="#000000">2</text>
+<text text-anchor="start" x="128.0653" y="-23.5307" font-family="Times,serif" font-size="14.00" fill="#000000">M</text>
+<text text-anchor="start" x="140.5099" y="-23.5307" font-family="Times,serif" baseline-shift="sub" font-size="10.00" fill="#000000">2</text>
+<text text-anchor="start" x="145.5099" y="-23.5307" font-family="Times,serif" font-size="14.00" fill="#000000">=10</text>
+</g>
+<!-- &#45;1&#45;&gt;2 -->
+<g id="edge1" class="edge">
+<title>-1-&gt;2</title>
+<path fill="none" stroke="#000000" d="M38.3407,-39.1307C54.1841,-39.1307 77.357,-39.1307 98.3011,-39.1307"></path>
+<polygon fill="#000000" stroke="#000000" points="98.3618,-42.6308 108.3618,-39.1307 98.3618,-35.6308 98.3618,-42.6308"></polygon>
+<text text-anchor="start" x="56.1596" y="-46.1307" font-family="Times,serif" font-size="20.00" fill="#000000">∞</text>
+<text text-anchor="start" x="71.1596" y="-46.1307" font-family="Times,serif" font-size="14.00" fill="#000000">kps</text>
+</g>
+<!-- &#45;2 -->
+<!-- 7 -->
+<g id="node10" class="node">
+<title>7</title>
+<ellipse fill="none" stroke="#000000" cx="147.7349" cy="-135.1307" rx="39.2619" ry="39.2619"></ellipse>
+<text text-anchor="start" x="142.2349" y="-134.3307" font-family="Times,serif" font-weight="bold" font-size="22.00" fill="#000000">7</text>
+<text text-anchor="start" x="128.0653" y="-119.5307" font-family="Times,serif" font-size="14.00" fill="#000000">M</text>
+<text text-anchor="start" x="140.5099" y="-119.5307" font-family="Times,serif" baseline-shift="sub" font-size="10.00" fill="#000000">7</text>
+<text text-anchor="start" x="145.5099" y="-119.5307" font-family="Times,serif" font-size="14.00" fill="#000000">=10</text>
+</g>
+<!-- &#45;2&#45;&gt;7 -->
+<g id="edge2" class="edge">
+<title>-2-&gt;7</title>
+<path fill="none" stroke="#000000" d="M38.3407,-135.1307C54.1841,-135.1307 77.357,-135.1307 98.3011,-135.1307"></path>
+<polygon fill="#000000" stroke="#000000" points="98.3618,-138.6308 108.3618,-135.1307 98.3618,-131.6308 98.3618,-138.6308"></polygon>
+<text text-anchor="start" x="56.1596" y="-142.1307" font-family="Times,serif" font-size="20.00" fill="#000000">∞</text>
+<text text-anchor="start" x="71.1596" y="-142.1307" font-family="Times,serif" font-size="14.00" fill="#000000">kps</text>
+</g>
+<!-- &#45;3 -->
+<!-- 8 -->
+<g id="node11" class="node">
+<title>8</title>
+<ellipse fill="none" stroke="#000000" cx="147.7349" cy="-226.1307" rx="34.3629" ry="34.3629"></ellipse>
+<text text-anchor="start" x="142.2349" y="-225.3307" font-family="Times,serif" font-weight="bold" font-size="22.00" fill="#000000">8</text>
+<text text-anchor="start" x="131.5653" y="-210.5307" font-family="Times,serif" font-size="14.00" fill="#000000">M</text>
+<text text-anchor="start" x="144.0099" y="-210.5307" font-family="Times,serif" baseline-shift="sub" font-size="10.00" fill="#000000">8</text>
+<text text-anchor="start" x="149.0099" y="-210.5307" font-family="Times,serif" font-size="14.00" fill="#000000">=5</text>
+</g>
+<!-- &#45;3&#45;&gt;8 -->
+<g id="edge3" class="edge">
+<title>-3-&gt;8</title>
+<path fill="none" stroke="#000000" d="M38.3407,-226.1307C55.4059,-226.1307 80.9747,-226.1307 103.1024,-226.1307"></path>
+<polygon fill="#000000" stroke="#000000" points="103.3092,-229.6308 113.3092,-226.1307 103.3092,-222.6308 103.3092,-229.6308"></polygon>
+<text text-anchor="start" x="56.1596" y="-233.1307" font-family="Times,serif" font-size="20.00" fill="#000000">∞</text>
+<text text-anchor="start" x="71.1596" y="-233.1307" font-family="Times,serif" font-size="14.00" fill="#000000">kps</text>
+</g>
+<!-- 1 -->
+<g id="node4" class="node">
+<title>1</title>
+<ellipse fill="none" stroke="#000000" cx="589.4033" cy="-135.1307" rx="34.3629" ry="34.3629"></ellipse>
+<text text-anchor="start" x="583.9033" y="-134.3307" font-family="Times,serif" font-weight="bold" font-size="22.00" fill="#000000">1</text>
+<text text-anchor="start" x="573.2337" y="-119.5307" font-family="Times,serif" font-size="14.00" fill="#000000">M</text>
+<text text-anchor="start" x="585.6783" y="-119.5307" font-family="Times,serif" baseline-shift="sub" font-size="10.00" fill="#000000">1</text>
+<text text-anchor="start" x="590.6783" y="-119.5307" font-family="Times,serif" font-size="14.00" fill="#000000">=7</text>
+</g>
+<!-- 6 -->
+<g id="node9" class="node">
+<title>6</title>
+<ellipse fill="none" stroke="#000000" cx="298.9409" cy="-39.1307" rx="39.2619" ry="39.2619"></ellipse>
+<text text-anchor="start" x="293.4409" y="-38.3307" font-family="Times,serif" font-weight="bold" font-size="22.00" fill="#000000">6</text>
+<text text-anchor="start" x="279.2713" y="-23.5307" font-family="Times,serif" font-size="14.00" fill="#000000">M</text>
+<text text-anchor="start" x="291.7159" y="-23.5307" font-family="Times,serif" baseline-shift="sub" font-size="10.00" fill="#000000">6</text>
+<text text-anchor="start" x="296.7159" y="-23.5307" font-family="Times,serif" font-size="14.00" fill="#000000">=12</text>
+</g>
+<!-- 2&#45;&gt;6 -->
+<g id="edge4" class="edge">
+<title>2-&gt;6</title>
+<path fill="none" stroke="#000000" d="M187.0678,-39.1307C206.231,-39.1307 229.4686,-39.1307 249.7891,-39.1307"></path>
+<polygon fill="#000000" stroke="#000000" points="249.805,-42.6308 259.805,-39.1307 249.8049,-35.6308 249.805,-42.6308"></polygon>
+<text text-anchor="middle" x="223.3379" y="-43.3307" font-family="Times,serif" font-size="14.00" fill="#000000">10 kps</text>
+<text text-anchor="middle" x="203.3981" y="-26.5307" font-family="Times,serif" font-size="14.00" fill="#000000">100%</text>
+</g>
+<!-- 3 -->
+<g id="node6" class="node">
+<title>3</title>
+<ellipse fill="none" stroke="#000000" cx="298.9409" cy="-135.1307" rx="34.3629" ry="34.3629"></ellipse>
+<text text-anchor="start" x="293.4409" y="-134.3307" font-family="Times,serif" font-weight="bold" font-size="22.00" fill="#000000">3</text>
+<text text-anchor="start" x="282.7713" y="-119.5307" font-family="Times,serif" font-size="14.00" fill="#000000">M</text>
+<text text-anchor="start" x="295.2159" y="-119.5307" font-family="Times,serif" baseline-shift="sub" font-size="10.00" fill="#000000">3</text>
+<text text-anchor="start" x="300.2159" y="-119.5307" font-family="Times,serif" font-size="14.00" fill="#000000">=8</text>
+</g>
+<!-- 4 -->
+<g id="node7" class="node">
+<title>4</title>
+<ellipse fill="none" stroke="#000000" cx="450.147" cy="-135.1307" rx="34.3629" ry="34.3629"></ellipse>
+<text text-anchor="start" x="444.647" y="-134.3307" font-family="Times,serif" font-weight="bold" font-size="22.00" fill="#000000">4</text>
+<text text-anchor="start" x="433.9774" y="-119.5307" font-family="Times,serif" font-size="14.00" fill="#000000">M</text>
+<text text-anchor="start" x="446.422" y="-119.5307" font-family="Times,serif" baseline-shift="sub" font-size="10.00" fill="#000000">4</text>
+<text text-anchor="start" x="451.422" y="-119.5307" font-family="Times,serif" font-size="14.00" fill="#000000">=9</text>
+</g>
+<!-- 3&#45;&gt;4 -->
+<g id="edge5" class="edge">
+<title>3-&gt;4</title>
+<path fill="none" stroke="#000000" d="M333.2519,-135.1307C354.6356,-135.1307 382.3767,-135.1307 405.4677,-135.1307"></path>
+<polygon fill="#000000" stroke="#000000" points="405.7104,-138.6308 415.7104,-135.1307 405.7103,-131.6308 405.7104,-138.6308"></polygon>
+<text text-anchor="middle" x="374.5439" y="-139.3307" font-family="Times,serif" font-size="14.00" fill="#000000">8 kps</text>
+<text text-anchor="middle" x="349.5822" y="-122.5307" font-family="Times,serif" font-size="14.00" fill="#000000">100%</text>
+</g>
+<!-- 4&#45;&gt;1 -->
+<g id="edge6" class="edge">
+<title>4-&gt;1</title>
+<path fill="none" stroke="#000000" d="M484.5699,-135.1307C502.7303,-135.1307 525.2268,-135.1307 544.7183,-135.1307"></path>
+<polygon fill="#000000" stroke="#000000" points="544.8938,-138.6308 554.8937,-135.1307 544.8937,-131.6308 544.8938,-138.6308"></polygon>
+<text text-anchor="middle" x="522.25" y="-139.3307" font-family="Times,serif" font-size="14.00" fill="#000000">8 kps</text>
+<text text-anchor="middle" x="500.9002" y="-122.5307" font-family="Times,serif" font-size="14.00" fill="#000000">100%</text>
+</g>
+<!-- 5 -->
+<g id="node8" class="node">
+<title>5</title>
+<ellipse fill="none" stroke="#000000" cx="450.147" cy="-39.1307" rx="39.2619" ry="39.2619"></ellipse>
+<text text-anchor="start" x="444.647" y="-38.3307" font-family="Times,serif" font-weight="bold" font-size="22.00" fill="#000000">5</text>
+<text text-anchor="start" x="430.4774" y="-23.5307" font-family="Times,serif" font-size="14.00" fill="#000000">M</text>
+<text text-anchor="start" x="442.922" y="-23.5307" font-family="Times,serif" baseline-shift="sub" font-size="10.00" fill="#000000">5</text>
+<text text-anchor="start" x="447.922" y="-23.5307" font-family="Times,serif" font-size="14.00" fill="#000000">=11</text>
+</g>
+<!-- 6&#45;&gt;5 -->
+<g id="edge7" class="edge">
+<title>6-&gt;5</title>
+<path fill="none" stroke="#000000" d="M338.2738,-39.1307C357.437,-39.1307 380.6747,-39.1307 400.9951,-39.1307"></path>
+<polygon fill="#000000" stroke="#000000" points="401.0111,-42.6308 411.011,-39.1307 401.011,-35.6308 401.0111,-42.6308"></polygon>
+<text text-anchor="middle" x="374.5439" y="-43.3307" font-family="Times,serif" font-size="14.00" fill="#000000">10 kps</text>
+<text text-anchor="middle" x="354.6041" y="-26.5307" font-family="Times,serif" font-size="14.00" fill="#000000">100%</text>
+</g>
+<!-- 7&#45;&gt;3 -->
+<g id="edge8" class="edge">
+<title>7-&gt;3</title>
+<path fill="none" stroke="#000000" d="M187.0678,-135.1307C207.7472,-135.1307 233.1714,-135.1307 254.5543,-135.1307"></path>
+<polygon fill="#000000" stroke="#000000" points="254.6883,-138.6308 264.6883,-135.1307 254.6882,-131.6308 254.6883,-138.6308"></polygon>
+<text text-anchor="middle" x="223.3379" y="-139.3307" font-family="Times,serif" font-size="14.00" fill="#000000">10 kps</text>
+<text text-anchor="middle" x="203.3981" y="-122.5307" font-family="Times,serif" font-size="14.00" fill="#000000">100%</text>
+</g>
+</g>
+</svg>

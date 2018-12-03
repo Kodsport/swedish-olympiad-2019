@@ -1,0 +1,27 @@
+digraph sample {
+        rankdir=LR;
+        size="100"
+        node [shape = doublecircle];
+        node [shape = circle];
+        -1[style=invis]
+        1[label = <<b><font point-size='22'>1</font></b><br/>M<SUB><font point-size='10'>1</font></SUB>=16>]
+        2[label = <<b><font point-size='22'>2</font></b><br/>M<SUB><font point-size='10'>2</font></SUB>=9>]
+        3[label = <<b><font point-size='22'>3</font></b><br/>M<SUB><font point-size='10'>3</font></SUB>=2>]
+        4[label = <<b><font point-size='22'>4</font></b><br/>M<SUB><font point-size='10'>4</font></SUB>=5>]
+        5[label = <<b><font point-size='22'>5</font></b><br/>M<SUB><font point-size='10'>5</font></SUB>=1>]
+        6[label = <<b><font point-size='22'>6</font></b><br/>M<SUB><font point-size='10'>6</font></SUB>=2>]
+        7[label = <<b><font point-size='22'>7</font></b><br/>M<SUB><font point-size='10'>7</font></SUB>=1>]
+        8[label = <<b><font point-size='22'>8</font></b><br/>M<SUB><font point-size='10'>8</font></SUB>=1>]
+        9[label = <<b><font point-size='22'>9</font></b><br/>M<SUB><font point-size='10'>9</font></SUB>=5>]
+        10[label = <<b><font point-size='22'>10</font></b><br/>M<SUB><font point-size='10'>10</font></SUB>=6>]
+        -1 -> 1 [label="∞ kps"]
+        1 -> 2 [taillabel="50%", label="8 kps"]
+        1 -> 4 [taillabel="25%", label="4 kps"]
+        1 -> 6 [taillabel="25%", label="4 kps"]
+        2 -> 9 [taillabel="75%", label="6 kps"]
+        2 -> 5 [taillabel="25%", label="2 kps"]
+        3 -> 8 [taillabel="100%", label="1.8 kps"]
+        6 -> 3 [taillabel="90%", label="1.8 kps"]
+        6 -> 7 [taillabel="10%", label="0.2 kps"]
+        9 -> 10 [taillabel="100%", label="5 kps"]
+}

@@ -1,0 +1,4 @@
+range: 0 100
+on_reject: continue
+grader_flags: always_accept
+grading: custom

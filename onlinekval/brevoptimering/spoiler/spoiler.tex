@@ -1,0 +1,26 @@
+\documentclass{article}
+
+\usepackage{listings}
+\usepackage{amsmath,amssymb,amsfonts,amsthm}
+\usepackage[utf8]{inputenc}
+\lstset{language=c++,breaklines=true}
+\lstset{literate=%
+{Ö}{{\"O}}1
+{Ä}{{\"A}}1
+{Å}{{\AA}}1
+{ä}{{\"a}}1
+{ö}{{\"o}}1
+{å}{{\aa}}1
+}
+
+\begin{document}
+
+\section*{Lösningsförslag Brevoptimering}
+
+Vi vill för varje person lista ut hur många brev som skickas till den per sekund, $I_b$. Låt $W_ab$ beteckna andelen av sina brev person a skickar till person b. Värdet $I_b$ kan vi då räkna ut som summan av $U_a \cdot W_ab$ för alla personer $a$ som skickar något till person $b$. Om vi nu definerar en funktion \texttt{getOutput(v)} som ger person $v$:s output, kan vi räkna ut värdet på den den rekursivt, genom att anropa \texttt{getOutput(u)} för alla personer $u$ som skickar något till $v$.
+
+För att detta ska bli tillräckligt snabbt krävs dock en viktigt insikt: vi behöver inte räkna ut \texttt{getOutput(v)} mer än en gång för varje person v. Så fort vi kommit till slutet att \texttt{getOutput(v)} för en viss person v, sparar vi svaret i som \texttt{output[v]} i en global array \texttt{output} innan vi returnerar det. I början av funktionen \texttt{getOutput(v)} kollar vi nu ifall värdet redan är uträknat, och returnerar det i så fall direkt. Att komma ihåg värden för en rekursiv funktion för att slippa räkna ut dem igen kallas för "memoization". Med den här optimeringen blir tidskomplexiteten $O(N+S)$, eftersom vi kommer att gå igenom varje kant i grafen exakt en gång, och varje person exakt en gång.
+
+\lstinputlisting{brevoptimering.cpp}
+
+\end{document}

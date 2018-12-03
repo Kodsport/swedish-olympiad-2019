@@ -1,0 +1,42 @@
+\problemname{Eldberget}
+Under en utflykt till eldbergen \emph{Yanar Dag} i Azerbajdzjan (värdland för årets internationella programmeringsolympiad) har du gått vilse!
+Bergen har formen av ett rutnät med $R$ rader och $C$ kolumner.
+Du står längst upp till vänster i rutnätet och vill förflytta dig till utflyktsbussen som är längst ner till höger.
+Eftersom bussen går snart vill du gå dit så snart som möjligt.
+För att ta dig till bussen kan du flytta dig till en ruta direkt ovan, till höger, under eller till vänster om den du står.
+
+På eldbergen finns det dock ett antal eldflammor, orsakade av naturgas som sipprar ut från bergen.
+Eftersom du har väldigt fina kläder på dig vill du inte behöva springa igenom fler eldflammor än nödvändigt.
+Mer specifikt är du beredd att gå genom högst $K$ eldflammor på din väg till bussen.
+
+Din uppgift är att beräkna hur snabbt du kan förflytta dig till bussen om du får gå genom högst $K$ eldflammor.
+
+\section*{Indata}
+Den första raden innehåller tre heltal $R$ ($2 \le R \le 100$) och $C$ ($2 \le C \le 100$), antalet rader och kolumner i rutnätet som eldbergen består av, samt $K$ ($0 \le K \le 200$).
+
+De följande $R$ raderna utgör en beskrivning av hur eldbergen ser ut.
+Den $i$:te av dessa rader innehåller $C$ tecken som beskriver hur den $i$:te raden ser ut.
+Varje tecken är antingen en punkt (\texttt{.}) om en ruta är tom eller en fyrkant (\texttt{\#}) om rutan innehåller en flamma. Rutan längst upp till vänster och rutan längst ned till höger är alltid punkter.
+
+\section*{Utdata}
+Skriv ut ett heltal $N$ -- det minsta antalet steg du behöver för att ta dig till bussen.
+Om du inte kan ta dig till målet utan att gå genom fler än $K$ flammor ska du skriva ut ``\texttt{nej}''.
+
+\section*{Poängsättning}
+Din lösning kommer att testas på en mängd testfallsgrupper.
+För att få poäng för en grupp så måste du klara alla testfall i gruppen.
+
+\noindent
+\begin{tabular}{| l | l | l |}
+\hline
+Grupp & Poängvärde & Gränser \\ \hline
+$1$    & $20$        &  Gruppen består av ett enda testfall med $K = 0$; det som finns på vår affisch (\url{https://www.progolymp.se/2019/affish2018.pdf}). \\ \hline 
+$2$    & $7$        &  Det är alltid möjligt att ta dig till bussen, och du behöver bara gå nedåt eller höger i rutnätet. \\ \hline
+$3$    & $15$        &  $K = 0$ och varje kolumn består av en eldpelare som börjar från toppen av kolumnen och en eldpelare som börjar från botten av kolumnen. Pelarna kan ha längd $0$, och det finns alltid minst en ruta utan eld i varje kolumn. \\ \hline 
+$4$    & $10$        &  $K = 0$ \\ \hline
+$5$    & $19$        &  $K = 1$ \\ \hline
+$6$    & $29$       &  Inga ytterligare begränsningar. \\ \hline
+\end{tabular}
+
+\section*{Sample}
+Notera att endast Sample $1$ kan förekomma i testfallsgrupp $2$, och endast Sample $4$ kan förekomma i testfallsgrupp $3$.
