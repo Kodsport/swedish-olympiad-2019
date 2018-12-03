@@ -1,0 +1,26 @@
+\section*{D - Eldberget}
+
+Ifall $k=0$ är uppgiften att helt enkelt hitta kortaste vägen i en \href{https://sv.wikipedia.org/wiki/Graf_(grafteori)}{graf},
+där en ruta (som inte har eld på sig) i rutnätet är en nod och en kant går mellan intilliggande rutor.
+Standardalgoritmen för att hitta kortaste vägen mellan ett par av punkter i en graf är ``bredden-först-sökning'', BFS, och den fungerar alldeles utmärkt här.
+Algoritmen går ut på att först hitta alla noder på avstånd 1 till startnoden (alla dess grannar),
+sedan alla noder på avstånd 2 (alla grannar till noderna på avstånd 1), sedan alla noder på avstånd 3
+(alla grannar till noderna på avstånd 2 som vi inte redan gett ett avstånd till), och så vidare.
+Man kommer alltså att "processa" alla noder i ordning efter deras avstånd till startnoden.
+Ett smidigt sätt att implementera detta på är att ha en kö med alla noder som ska processas.
+När vi processar en nod så lägger vi in dess grannar (de som inte redan processats) längst bak i kön,
+tillsammans med de avståndet från startnoden de är på.
+När vi kommer till slutnoden (rutan längst ned i högra hörnet) så skriver vi bara ut avståndet vi är på.
+
+När $k>0$ kan vi fortfarande göra BFS, men vi måste vara lite smartare.
+Man kan tänka att vi kan vara vid en viss nod på $k$ olika sätt, beroende på hur många eldar vi hittills gått igenom.
+Vi kan se det som att vi gör $k$ stycken kopior av varje nod, en för varje antal eldar man gått genom innan, och gör en BFS på den nya grafen vi får.
+Man kan även tänka på det som att vi lägger till en till dimension till rutnätet.
+För en ruta utan eld på så säger vi att den har kanter som går till alla dess grannar i samma lager i det 3-dimensionella rutnätet,
+och för en ruta med eld så går det kanter till alla grannar i lagret ovanför (eftersom man gått igenom en mer eld).
+
+Nu kör vi BFS:en som vanligt på den här grafen. När vi processar en nod med eld som är på översta lagret (d.v.s har redan gått genom $k$ stycken eldar) så ignorerar vi den,
+då vi inte kan fortsätta gå någonstans därifrån. Ifall vi aldrig i BFS kommer till slutnoden är svaret $-1$;
+
+Exempellösning i c++:
+\lstinputlisting{eldberget.cpp}
