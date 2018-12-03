@@ -1,0 +1,12 @@
+\section*{C - Skolavslutningen}
+    
+\subsection*{Subtask 3 ($N, M \leq 50$)}
+Man kan se uppställningen som en graf där varje elev är en nod och en kant mellan två elever betyder att dessa måste ha samma hattfärg. Det enda kravet på hattfärg blir då att alla elever som tillhör samma komponent måste ha samma hattfärg, så man kan maximera antalet unika hattfärger genom att tilldela varje komponent en unik färg. Svaret blir alltså antalet komponenter i grafen. För att räkna antal komponenter i en oriktad graf kan vi helt enkelt köra en \href{https://en.wikipedia.org/wiki/Depth-first_search}{DFS} från en godtycklig nod, markera alla noder vi nådde som "besökta", välja en ny nod som inte redan är besökt att börja ifrån och upprepa. Antal gånger vi upprepar algoritmen är hur många komponenter grafen har.
+
+För att bygga grafen kan man först lägga till kanter mellan alla noder i samma kolumn och sedan iterera över alla par av elever och lägga till kanter för de som tillhör samma klass. Tidskomplexitet för att bygga grafen blir $\mathcal{O}((NM)^2)$. Att räkna antalet komponenter kan göras med djupet/bredden först sökning i $\mathcal{O}(V + E)$, där $V$ är antalet noder i grafen och $E$ är antalet kanter. Den totala tidskomplexiteten blir $\mathcal{O}((NM)^2)$.
+
+\subsection*{Subtask 4 ($N, M \leq 700$)}
+För 100 poäng behöver man bygga grafen på ett mer optimerat sätt. Exempelvis kan man istället för att lägga till kanter mellan alla par av elever i samma klass endast lägga till kanter från en av eleverna till de resterande. Detta kan man göra genom att för varje klass hålla koll på vilken nod som motsvarar den första eleven och för de resterande eleverna lägga till en kant mellan denna och den första. Om man ansluter noder i samma kolumn på liknande sätt (till exempel ansluter alla noder till första radens nod) blir tidskomplexiteten $\mathcal{O}(NM)$.
+
+Här är en exempellösning i c++:
+\lstinputlisting{skolavslutningen.cpp}

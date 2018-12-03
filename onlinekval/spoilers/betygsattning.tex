@@ -1,0 +1,12 @@
+\section*{A - Betygsättning}
+Här gäller det bara att göra det som står.
+Ett smidigt sätt att implementera är att gå igenom betygen från \texttt{E} till \texttt{A},
+och för varje betyg kolla ifall man inte uppfyller nästa betygs krav.
+I så fall skriver vi ut betyget som svar, annars går vi vidare.
+
+I vissa språk kan det bli problem med då man dividerar med 2,
+eftersom det avrundas nedåt till närmsta heltal.
+Om man ska kolla ifall $y>b/2$ kan det därför vara säkrare att kolla $2y>b$.
+
+Exempellösning i python:
+\lstinputlisting{betygsattning.py}
