@@ -1,0 +1,4 @@
+grading: custom
+grader_flags: sum
+on_reject: continue
+range: 0 100

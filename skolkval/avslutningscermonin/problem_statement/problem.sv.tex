@@ -1,0 +1,18 @@
+\problemname{Avslutningsceremonin}
+Några olika sällskap är inbjudna att sitta på första raden under avslutningsceremonin för årets upplaga av IOI (International Olympiad in Informatics). Varje person har blivit tilldelad en plats. Då organisatörerna av IOI inte insåg att sällskapen gärna sitter tillsammans har de delat ut platserna lite huller om buller. Personerna tänker därför ta situationen i egna händer: Genom att byta platser med varandra försöker de maximera antalet par av personer från samma sällskap som sitter bredvid varandra. Organisatörerna blir arga ifall platsbytandet blir för stökigt, och bestämmer därför att varje person får byta plats högst en gång, och då med en person som sitter högst $K$ platser bort.\\ \\
+Vad är det största antalet par av personer från samma sällskap som sitter bredvid varandra som går att uppnå?
+
+\section*{Indata}
+På första raden står en sträng med längd $1 \leq N \leq 30$, som beskriver den ursprungliga raden. Varje bokstav i strängen beskriver vilket sällskap personen på motsvarande plats tillhör, och är antingen \texttt{A}, \texttt{B}, \texttt{C} eller \texttt{D}. På andra raden står ett heltal $K$, maxavståndet som personerna får flytta ($1 \leq K \leq 2$). 
+
+\section*{Utdata}
+Programmet ska skriva ut ett heltal: största antalet par av personer från samma sällskap som sitter bredvid varandra som går att uppnå genom giltiga platsbyten.
+
+\section*{Poängsättning}
+För testfall värda $20$ poäng gäller att $K=1$ och $N \leq 15$ och det finns 3 sällskap (A,B,C).\\
+För testfall värda $40$ poäng gäller att $K=2$ och det finns 2 sällskap (A,B).\\
+För testfall värda $40$ poäng gäller att $K=2$ och det finns 4 sällskap (A,B,C,D).\\
+
+\section*{Förklaring av sample}
+I sample 1 kan följande uppställning uppnås: \texttt{A B B A A A}, genom att byta plats på den första och den andra personen, och byta plats på den tredje och den fjärde personen. \\ \\
+I sample 2 kan följande uppställning uppnås: \texttt{A A C C B B B A}, genom att byta plats på den andra och den tredje personen, och byta plats på den fjärde och den sjätte personen. 

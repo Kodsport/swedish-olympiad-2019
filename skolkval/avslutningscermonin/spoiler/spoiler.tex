@@ -1,0 +1,60 @@
+\documentclass{article}
+
+\usepackage{listings}
+\usepackage{amsmath,amssymb,amsfonts,amsthm}
+\usepackage[utf8]{inputenc}
+
+\lstset{language=c++,breaklines=true}
+\lstset{literate=%
+{Ö}{{\"O}}1
+{Ä}{{\"A}}1
+{Å}{{\AA}}1
+{ä}{{\"a}}1
+{ö}{{\"o}}1
+{å}{{\aa}}1
+}
+
+\begin{document}
+\newcounter{casenum}
+\newenvironment{caseof}{\setcounter{casenum}{1}}{\vskip.5\baselineskip}
+\newcommand{\case}[2]{\vskip.5\baselineskip\par\noindent {\bfseries Fall \arabic{casenum}:} #1\\#2\addtocounter{casenum}{1}}
+ 
+\section*{Lösningsförslag Avslutningscermonin}
+
+Vi definerar en funktion $f(last,index)$ som löser uppgiften från $index$ och frammåt. $f$ svarar alltså på frågan:
+
+Vilket är det största antalet intillsittande par vi kan uppnå bland platserna
+$index-1, index, index+1, ... , str.size()-1$ (platserna är 0-indexerade),
+givet att personen på position index-1 är från sällskap $last$?
+
+Det fiffiga med att definera en sådan funktion är att vi kan räkna ut värdet på den rekursivt
+genom att testa alla olika möjligheter för hur personen på position index kan byta sin plats,
+räkna hur många nya intillsittande par det gav upphov till, och sedan rekursera.
+
+Det finns $4$ olika fall vi måste ta hänsyn till: ($a[i]$ beskriver vilket sällskap som urspungligen satt på position i)
+\begin{caseof}
+\case{Personen på plats index sitter kvar.}{
+	Vi räknar antal par bland $index-1$ och $index$ och rekurserar från $f(a[index],index+1)$
+}
+
+\case{Personen på plats index byter ett steg till höger}{
+    Vi utför bytet, räknar antal par bland $index-1, index, index+1$ och rekurserar från $f(a[index],index+2)$
+}
+
+\case{Personen på plats index byter två steg till höger (ifall man får byta två steg), och personen på $index+1$ sitter kvar}{
+    Vi utför bytet, räknar antal par bland $index-1, index, index+1, index+2$ och rekurserar från $f(a[index],index+3)$
+}
+
+\case{Personen på plats index byter två steg till höger, och personen på index+1 byter också plats två steg till höger.}{
+    Vi utför de två bytena, räknar antal par bland $index-1, index, index+1, index+2, index+3$ och rekurserar från $f(a[index+1],index+4)$
+}
+\end{caseof}
+
+
+Värdet av f beror endast av parametrarna last och index. Därför kan vi "memoize:a",
+det vill säga vi kommer ihåg svaret för ett givet par av parametrar, så behöver vi inte räkna ut det igen.
+Det gör att rekursionsträdet, som annars skulle växt exponetiellt, begränsas till att antalet noder blir maximalt antalet sätt att välja parametrarna.
+
+\lstinputlisting{avslutningscermonin.cpp}
+
+\end{document}
