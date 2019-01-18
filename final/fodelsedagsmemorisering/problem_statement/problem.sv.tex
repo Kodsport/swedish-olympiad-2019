@@ -1,0 +1,41 @@
+\def\version{jury-3}
+\problemname{Födelsedagsmemorisering}
+\noindent
+Krarkl vill lära sig alla sina $N$ kompisars födelsedagar utantill, så att han varje dag vet vem han ska gratta.
+Tyvärr så uppstår det ofta krockar, det vill säga flera kompisar som fyller år på samma dag.
+Det här gör Krarkl förvirrad, så han bestämmer sig för att för varje datum som har en krock bara komma ihåg födelsedagen för den kompis han tycker mest om.
+Givet en lista med födelsedagen för varje kompis och hur mycket Krarkl tycker om kompisen, skriv ut vilka kompisar Krarkl kommer minnas födelsedagen för.
+
+\section*{Indata}
+Den första raden i indata innehåller heltalet $N$ ($1 \leq N \leq 2\,000$), antalet kompisar.
+
+Sedan följer $N$ rader, en för varje kompis.
+Den $i$:te raden består av en sträng med den $i$:te kompisens förnamn, $S_i$ ($S_i$ är mellan $1$ och $10$ tecken lång), ett heltal $C_i$ ($0 \leq C_i \leq 100\,000$) som säger hur mycket Krarkl gillar kompisen samt kompisens födelsedag på formatet \texttt{DD/MM} (där \texttt{DD} är en dag mellan \texttt{01} och \texttt{31} och \texttt{MM} är en månad mellan \texttt{01} och \texttt{12}).
+Ett högre värde på $C_i$ betyder att Krarkl gillar kompisen mer.
+
+Födelsedagarna kommer att vara riktiga datum under 2020 (ett skottår), t.ex. \texttt{28/02} för den tjugoåttonde februari.
+Namnen kommer bestå av enbart små engelska bokstäver (\texttt{a-z}), med stor första bokstav (\texttt{A-Z}).
+Alla $C_i$ kommer att vara olika.
+
+\section*{Utdata}
+Du ska skriva ut en rad med ett heltal $K$, antalet kompisar vars födelsedag Krarkl kommer minnas.
+
+Den ska följas av $K$ rader med ett ord vardera, förnamnen på de utvalda kompisarna, \textbf{i alfabetisk ordning}.
+
+\section*{Poängsättning}
+Din lösning kommer att testas på en mängd testfallsgrupper.
+För att få poäng för en grupp så måste du klara alla testfall i gruppen.
+
+\noindent
+\begin{tabular}{| l | l | l |}
+\hline
+Grupp & Poängvärde & Gränser \\ \hline
+$1$    & $30$         & $N \leq 100$ \\ \hline
+$2$    & $70$         & Inga ytterligare begränsningar \\ \hline
+\end{tabular}
+
+\section*{Förklaring av exempelfall}
+I det första exemplet har Sanna och Simon samma födelsedag.
+Eftersom Krarkl gillar Sanna mindre än Simon ($1 < 2$) så kommer Krarkl bara komma ihåg Simons och Sagas födelsedagar.
+
+I det andra exemplet har Krarkl jätteotur och komma att missa hälften av sina kompisars födelsedagar.

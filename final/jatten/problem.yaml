@@ -1,0 +1,10 @@
+author: Erik Amirell Eklöf
+source: Programmeringsolympiadens final 2019
+rights_owner: Programmeringsolympiaden
+license: cc by-sa
+type: scoring
+grading:
+    show_test_data_groups: yes
+limits:
+    time_multiplier: 4
+validation: custom
