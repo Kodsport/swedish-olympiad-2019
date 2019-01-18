@@ -1,0 +1,38 @@
+\def\version{jury-3}
+\problemname{Jätten}
+Du har blivit tillfångatagen av en ond jätte.
+Ni befinner er båda i en $N \times M$ stor grotta bestående av alla punkter $(x, y)$ med $0 \le x < N, 0 \le y < M$.
+Jätten tänker äta upp dig, så du måste rymma innan det är för sent!
+Jätten står med sina fötter på två olika punkter i grottan med heltalskoordinater.
+Du kan lägga en guldklimp på en tredje punkt i grottan.
+Jätten kommer då böja sig ner och försöka plocka upp guldklimpen.
+Om positionerna för jättens fötter samt guldklimpens position tillsammans bildar en trubbvinklig triangel kommer jätten tappa balansen och trilla.
+I så fall får du chansen att fly!
+
+Skriv ett program som givet storleken på grottan, koordinaterna för jättens högra fot, $x_1, y_1$, samt koordinaterna för jättens vänstra fot, $x_2, y_2$, hittar en ny punkt med heltalskoordinater att lägga guldklimpen på, så att de tre punkterna bildar en \textbf{icke-degenererad}\footnote{En triangel är icke-degenererad om inte alla hörn ligger på en linje. \url{https://en.wikipedia.org/wiki/Degeneracy_(mathematics)}} trubbvinklig triangel.
+
+\section*{Indata}
+Den första raden består av två heltal, $N$ och $M$ ($1\leq N, M \leq 10^9$), grottans storlek.
+
+Den andra raden består av 4 heltal, $x_1$, $y_1$, $x_2$ och $y_2$ ($0\leq x_1, x_2 < N$, $0\leq y_1, y_2 < M$), koordinaterna för jättens två fötter.
+Dessa punkter kommer alltid att vara olika.
+
+\section*{Utdata}
+Skriv ut två heltal $x_3, y_3$ ($0\leq x_3 < N$, $0\leq y_3 < M$) på samma rad, så att punkten med dessa koordinaterna tillsammans med de två punkterna i indatan bildar en icke-degenererad trubbvinklig triangel. Det är garanterat att en sådan punkt finns.
+
+\section*{Poängsättning}
+Din lösning kommer att testas på en mängd testfallsgrupper.
+För att få poäng för en grupp så måste du klara alla testfall i gruppen.
+
+\noindent
+\begin{tabular}{| l | l | l |}
+\hline
+Grupp & Poängvärde & Gränser \\ \hline
+$1$    & $30$         & $1\leq N \leq 1000$ och $1\leq M \leq 1000$ \\ \hline
+$2$    & $25$          & $1000\leq N\leq 10^9$ och $1000\leq M \leq 10^9$ \\ \hline
+$3$    & $15$          & $x_1 \neq x_2$ och $y_1 \neq y_2$ \\ \hline
+$4$    & $30$         & Inga ytterligare begränsningar \\ \hline
+\end{tabular}
+
+\section*{Förklaring av exempelfall 1}
+I exempelfall 1 bildar punkterna $(1,1)$, $(3,4)$ och $(1,2)$ en trubbvinklig triangel med trubbig vinkel vid $(1,2)$. $(1,2)$ ligger dessutom i grottan. Punkten $(1,4)$ hade inte varit en korrekt lösning eftersom triangeln som bildats då hade varit rätvinklig och inte trubbig. Punkten $(5,7)$ hade inte heller varit en lösning eftersom triangeln som bildats då hade varit degenererad, och $(5,7)$ dessutom ligger utanför grottan.
