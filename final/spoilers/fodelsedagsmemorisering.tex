@@ -1,0 +1,10 @@
+\section{Födelsedagsmemorisering}
+Detta problem är rätt straightforward. Vi sparar bara för varje födelsedag vem Krarkl gillar mest och uppdaterar när vi läser in hans kompisar.
+
+Använd en map från datum till en tuple av namn och hur mycket den personen gillas av Krarkl.
+Varje gång en ny person läses in så kollar vi först om det inte finns någon som fyller år på den dagen.
+I så fall lägger vi in personen i map:en.
+Annars jämför vi den personen som redan står i map:en med den som nu lästes in och sparar den som gillas mest av Krarkl.
+
+Loopa igenom alla födelsedagar och lägg in namnen på de kompisar han gillade mest i en lista.
+Sortera listan (i de flesta språk finns sortering och jämförelse i bokstavsordning inbyggt) och skriv ut.
