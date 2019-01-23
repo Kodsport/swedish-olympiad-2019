@@ -1,0 +1,29 @@
+\section{Månresor}
+Problemet löses med hjälp av dynamisk programmering.
+Den dynamiska programmeringen går ut på att vi delar upp problemet i mindre problem, i det här fallet, hur mycket det kostar att köpa biljetter enbart för resorna som sker dagarna $d_i, \dots, d_N$.
+För att lösa ett sådant problem kan vi prova oss fram till de olika sätten att köpa en biljett som täcker in $d_i$ (och potentiellt fler dagar), och därefter rekursera på
+dagarna som inte ännu täckts in (som är ett problem av samma slag, fast mindre).
+Vi kallar DP-funktionen för $minimal\_cost(i)$ där $minimal\_cost(i)=$ minsta kostnaden för att köpa biljett till resorna som sker dagarna $d_i,\dots,d_N$. 
+
+När vi ska lösa problemet för resa $i$ antar vi att problemet är löst för alla resor $i+1,i+2,\dots,N$, alltså att vi vet vad $minimal\_cost(j), i<j\leq N$ är.
+
+Därefter har vi för resa $i$ två möjligheter: antingen köper vi biljett dag $d_i$ till fullt pris, eller så köper vi biljett den senaste dagen före eller på dag $d_i$ då vi kan köpa biljetten till halva priset.
+Låt $last\_discount(i)$ vara den senaste dagen före eller på dag $d_i$ som det är rabatt.
+Låt också $next\_trip(d)$ beteckna den nästa resan som är belägen efter eller på dagen $d$.
+Då får vi att 
+\begin{align*}
+minimal\_cost(i) = \min(&\min_{\text{biljett }b} p_b+minimal\_cost(next\_trip(d_i+g_b)), \\
+  &\min_{\text{biljett }b}p_b+minimal\_cost(next\_trip(last\_discount(i)+g_b)))
+\end{align*}
+
+Notera att $\min_{\text{biljett }b}$ betecknar att vi tar det minsta värdet som uttrycket efteråt kan få, när vi går igenom alla biljetter med index $b$. ($p_b$ och $g_b$ följer notationerna i problemformuleringen.)
+
+Nu beräknar vi värdet av $minimal\_cost$ baklänges, alltså i ordningen resa $N,N-1,\dots,1$ och slutligen blir $minimal\_cost(1)$ svaret som vi ska skriva ut.
+
+För att få denna lösning att fungera måste vi vara försiktiga med två saker:
+\begin{enumerate}
+  \item Vi måste se om biljetten vi köper nu kommer gälla för alla återstående resor. I sådana fall lägger vi inte till $minimal\_cost$-termen.
+  \item Vi måste se till att för dagarna med rabatt ska vi bara kolla på de biljetter som i varje fall är giltiga dag $d_i$ (alltså den dagen vi vill köpa biljett till). 
+\end{enumerate}
+
+Notera att $next\_trip$ och $last\_discount$ kan beräknas genom binärsökning eller genom att linjärt beräkna dem i förväg.

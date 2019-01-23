@@ -1,0 +1,19 @@
+\section{Kodkraft}
+Vi observerar att när Nicolas väl har börjat tävla så finns det inget syfte med att inte vara med i en tävling som han kan vara med i, och vi kan därför utan inskränkning anta att han alltid är med i nästa tävling han kan vara med i.
+
+Med den observationen i åtanke så beräknar vi för varje tävling $i$ när nästa tävling $n_i$ för division $x_i + 1$ är, där $x_i$ är den division som tävlar i tävling $i$. Detta är nästa tävling som Nicolas kommer delta i efter att han deltagit i tävling $i$. För att beräkna $n_i$ kan vi först beräkna när årets första tävling är för varje division. Vi går sedan igenom alla tävlingar bakifrån (dvs. att vi börjar med årets sista tävling) och håller hela tiden koll på när nästa tävling är i varje division. Samtidigt så beräknar vi $n_i$ med hjälp av den ögonblicksbild av vilken nästa tävling är i varje division som vi har då vi når tävling $i$.
+
+När vi väl beräknat $n_i$ för alla $i$ så kan vi använda dynamisk programmering för att beräkna för varje tävling $i$ hur länge Nicolas måste ha tävlat på Kodkraft för att kunna vara med i och vinna tävling $i$. Låt $t_i$ vara antalet tävlingar Nicolas som minst måste ha deltagit i för att kunna vinna tävling $i$. Notera att med Nicolas strategi att aldrig avstå från en tävling han kan vara med i så kan det finnas tävlingar som han aldrig kan vara med i, oavsett när på året han börjar tävla, för om det till exempel är två tävlingar i rad för division 2 så kommer Nicolas aldrig vara med i den senare av dem. I sådana fall kommer $t_i = \infty$.
+
+Vi går nu igenom alla divisioner i ordning från division 1 till division $K$, och beräknar $t_i$ för alla tävlingar i en division i taget. För att kunna göra det så behöver vi först skapa listor med vilka tävlingar som är i varje division, men det är enkelt att göra i linjär tid. För alla tävlingar $i$ i division $1$ så sätter vi $t_i=1$ eftersom Nicolas inte behöver ha varit med i någon annan tävling innan.
+
+För att beräkna $t_i$ för alla tävlingar i division $2$ så sätter vi först $t_i$ till $\infty$ för alla tävlingar i den divisionen. Därefter går vi igenom alla tävlingar $j$ i division $1$ och sätter $t_{n_j}=\min\{t_{n_j}, t_j+\texttt{diff}(j,n_j)\}$, där $\texttt{diff}(a,b)$ är antalet tävlingar mellan $a$ (exklusive) och $b$ (inklusive), vilket exempelvis kan beräknas genom
+$$\texttt{diff}(a,b)=(b-a+N)\% N.$$
+
+Efter att vi beräknat $t_i$ för alla tävlingar i division $2$ beräknar vi $t_i$ för alla tävlingar i division $3$ med hjälp av de värden vi beräknat för division $2$, och vi fortsätter på det viset tills vi beräknat $t_i$ för alla tävlingar i division $K$. Slutligen så hittar vi minimum av $t_i$ för alla tävlingar $i$ i division $K$ och skriver ut det som vårt svar!
+
+Algoritmens komplexitet är $O(N)$, vilket är snabbt nog för $N = 10^6$.
+
+För delpoäng kunde man även lösa problemet med långsammare tidskomplexitet, t.ex. $O(N^2)$ eller $O(N^3)$.
+$O(N^2)$ kan man exempelvis uppnå genom att hitta nästa tävling efter $i$ som Nicolas ska delta i genom att loopa och kolla på tävlingar $i+1$, $i+2$, $\dots$ tills man kommer fram till en i nästa division.
+Eftersom dessa loopar kan ta lång tid (upp till $O(N)$) tillkommer en extra faktor $N$ till tidskomplexiteten.

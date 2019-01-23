@@ -1,0 +1,24 @@
+\section{Jätten}
+Det finns i princip två sätt att lösa det här problemet på. Det ena är att göra falluppdelning och explicit konstruera en triangel. 
+Det andra, som är betydligt enklare, är att slumpa punkter som är nära hörnen, säg i en 3x3-kvadrat runt de båda hörnen. Att detta funkar kanske inte är helt uppenbart. Dock behöver man ju inte bevisa att det funkar under tävlingen utan bara gissa.
+
+Det är lite petigt att visa att det funkar när man kan råka gå utanför grottan så vi börjar med att anta att så inte är fallet (vi har lite marginal). Låt de ursprungliga punkterna vara $A$ och $B$. Låt $C$ vara punkten till vänster om $A$ och $D$ var punkten till höger om $A$ (speglingen av $C$ i $A$). Då vet vi att om $\angle CAB < 90\degree$ så är $\angle DAB > 90\degree$. Om istället $\angle CAB = 90\degree$ så innebär det att $A$ och $B$ är på en vertikal linje. Om $A$ är underst så låter vi $E$ vara punkten under $C$, annars är $E$ punkten över $C$. Då är det tydligt att $\angle EAB > 90\degree$. Nu har vi alltså löst fallet då någon av $A$ och $B$ har alla dessa punkter i grottan.
+
+Annars har vi några fall, gemensamt för dessa är att både $A$ och $B$ måste vara på en kant till grottan.
+
+Fall 1: Båda är i diagonalt motsatta hörn. De kan inte angränsa diagonalt till varandra utan måste ha ett avstånd som är större än $\sqrt{2}$ för annars skulle grottan vara en $2x2$-kvadrat och då finns ingen trubbvinklig triangel. Då kommer punkten ovanför punkten till höger om en av dem tillsammans med de andra bilda en trubbvinklig triangel.
+
+Fall 2: Båda är i hörn men är inte diagonalt motsatta, utan inskränkning är $A$ i nedre vänstra hörnet och $B$ i nedre högra hörnet. De måste ha avstånd minst $3$ mellan varandra, annars går det inte. Punkten som är snett till höger ovanför $A$ kommer då tillsammans med de andra bilda en trubbvinklig triangel.
+
+Fall 3: $A$ och $B$ har en gemensam koordinat, inte båda av dem är i ett hörn. Anta utan inskränkning att $B$ är ovanför $A$ och att $B$ inte är i ett hörn. Då finns punkten snett ovanför till höger eller till vänster om $B$ i grottan. Den tillsammans med $A$ och $B$ bildar en trubbvinklig triangel.
+
+Fall 4: $A$ och $B$ har inga gemensamma koordinater, inte båda av dem är i ett hörn. Om avståndet mellan dem är större än $\sqrt{2}$ kan vi betrakta rektangeln där de båda är hörn och reducera till Fall 1. Alltså kan vi utan inskränkning anta att avståndet mellan dem är $\sqrt{2}$ (de angränsar diagonalt). Grottan kan inte vara en $2x2$-kvadrat för då finns det ingen punkt som tillsammans med $A$ och $B$ bildar en trubbvinklig triangel. Vi har minst en $3x2$-rektangel. Då kan man rita upp alla fall eller bara använda konstruktionen där vi betraktar speglingar i hörnen.
+
+Ett sätt att kontrollera om en triangel med sidlängder $\alpha$, $\beta$ och $\gamma$ är trubbig är genom att se hur väl Pythagoras sats håller.
+På samma sätt som en triangel är rätvinklig om det finns någon permutation av $\alpha$, $\beta$ och $\gamma$ så att $\alpha^2+\beta^2 = \gamma^2$,
+så är den trubbig om det finns någon permutation så att $\alpha^2+\beta^2 < \gamma^2$.
+
+Man kan också använda sig av \href{https://en.wikipedia.org/wiki/Dot_product}{skalärprodukter}. Om triangeln har hörn i $a$, $b$ och $c$ så är den trubbig om det finns någon permutation av $a$, $b$ och $c$ så att
+\[
+  \langle a-c, b-c \rangle = (a.x-c.x) (b.x-c.x) + (a.y-c.y) (b.y-c.y) < 0.
+\]
