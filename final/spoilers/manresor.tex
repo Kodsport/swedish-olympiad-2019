@@ -13,7 +13,7 @@ Låt också $next\_trip(d)$ beteckna den nästa resan som är belägen efter ell
 Då får vi att 
 \begin{align*}
 minimal\_cost(i) = \min(&\min_{\text{biljett }b} p_b+minimal\_cost(next\_trip(d_i+g_b)), \\
-  &\min_{\text{biljett }b}p_b+minimal\_cost(next\_trip(last\_discount(i)+g_b)))
+  &\min_{\text{biljett }b}p_b/2+minimal\_cost(next\_trip(last\_discount(i)+g_b)))
 \end{align*}
 
 Notera att $\min_{\text{biljett }b}$ betecknar att vi tar det minsta värdet som uttrycket efteråt kan få, när vi går igenom alla biljetter med index $b$. ($p_b$ och $g_b$ följer notationerna i problemformuleringen.)
