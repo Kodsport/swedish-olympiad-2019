@@ -1,0 +1,51 @@
+\section*{Efterlyst}
+
+Låt oss kalla de givna noderna för $\textit{speciella}$ noder.
+
+\subsection*{Delpoäng 1}
+
+Låt $p$ vara den minsta (längst till vänster) av de speciella noderna, och låt $q$ vara det största.
+Nu kommer alla platser $r$ som uppfyller $r \leq p$ eller $r \geq q$ vara möjliga svar, så det är bara att printa ut dem.
+Se upp med fallet $k = 1$.
+
+\subsection*{Delpoäng 2}
+
+Den här delpoängsnivån hjälper inte så mycket för att ta de högre nivåerna, så här är en kortfattad beskrivning:
+
+När grafen är ett träd så spelar inte vikterna på kanterna någon roll eftersom det bara finns en väg mellan varje par av noder.
+Om vi rotar trädet i en av de speciella noderna så kommer vägens ändpunkter inte ha några andra speciella noder i sitt subträd.
+Detta gäller i alla fall utom när roten vi valde är en av ändpunkterna.
+
+När vi har rett ut de olika fallen blir svaret alla noder som är i någon av ändpunkternas subträd.
+Efter det återstår det bara att kolla att svaret är giltigt genom att kolla att alla speciella noder är på vägen mellan ändpunkterna.
+Jobbigt att implementera, men ger en del poäng.
+
+\subsection*{Delpoäng 3, 4, 5}
+
+Här finns det lite olika lösningar som ger olika mycket poäng. En viktig observation som vi kommer behöva är att om 
+$$b_1 \rightarrow b_2 \rightarrow \dots \rightarrow b_r$$
+är en kortaste väg mellan $b_1$ och $b_r$, så är 
+$$b_i \rightarrow \dots \rightarrow b_j$$
+en kortaste väg mellan $b_i$ och $b_j$.
+Detta innebär att om vi letar efter en kortaste väg till $y$ som går igenom alla speciella noder, så kan vi anta att vägen börjar vid en av de speciella noderna.
+
+Låt oss testa en av de speciella noderna som startpunkt.
+Gör en Dijkstra från $y$ för att räkna ut avstånden $d(y,i)$ till alla andra noder.
+De kortaste vägarna bildar en slags riktad acyklisk graf.
+Vi kan tänka oss att en riktad kant går mellan $i$ och $j$ om $d(y,i) + w_{ij} = d(y,j)$.
+Nu behöver vi bara hitta alla noder sådana att det finns en väg i den riktade grafen som går igenom alla speciella noder och hamnar på $y$.
+Det här går att göra i linjär tid, så totalt blir komplexiteten $O(km\log(n))$.
+
+\subsection*{Delpoäng 6}
+
+I förra delpoängsnivån löste vi problemet i $O(km\log(n))$ genom att kolla alla möjliga startpunkter.
+Den huvudsakliga observationen för att lösa hela problemet är att det bara finns två speciella punkter som vi behöver kolla.
+Låt oss säga att det finns en kortaste väg som går igenom alla speciella noder i ordningen $a_1, \dots, a_k$ och slutar på någon nod $y$.
+Då är ju avståndet mellan $a_i$ och $a_j$ samma som avståndet på vägen.
+Detta innebär att $a_1$ och $a_k$ är de speciella punkter som är längst ifrån varandra.
+Ändpunkterna är alltså samma för alla möjliga vägar, så vi kan lösa problemet genom att köra $O(km\log(n))$-lösningen fast bara för de två ändpunkterna.
+
+Nu återstår bara att faktiskt hitta ändpunkterna.
+Det antagligen enklaste sättet att göra detta är att göra en Dijkstra från en godtycklig speciell nod, och se vilken av de andra speciella noderna som är längst bort.
+Denna nod $a_1$ måste vara en av ändpunkterna, och då kan vi hitta den andra ändpunkten genom att göra samma sak från $a_1$.
+Komplexiteten är $O(m\log(n))$.
