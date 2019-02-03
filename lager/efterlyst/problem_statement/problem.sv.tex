@@ -1,0 +1,60 @@
+\problemname{Efterlyst}
+\noindent
+Poliskonstapel Acsel behöver din hjälp med ett brådskande ärende, nämligen att fånga den farliga brottsligen Waxel.
+Waxel gömmer sig någonstans i en stad som består av $N$ olika platser, numrerade mellan $1$ och $N$, med $M$ dubbelriktade vägar som var och en ansluter två olika platser.
+Han befann sig länge på en viss plats $X$ (det är okänt vilken), men sedan så flyttade han sig till en annan plats $Y$ (som vi inte heller känner till) genom att färdas längs en sekvens av vägar.
+
+Polisen har samlat in $K$ stycken vittnesmål från personer som såg Waxel.
+Därför vet de att Waxel besökte platserna $a_1, a_2, \dots, a_K$ på vägen från $X$ till $Y$ (det är även möjligt att $a_i = X$ eller $a_i = Y$ för något $i$).
+Däremot vet de inte i vilken ordning platserna besöktes.
+Waxel kan dessutom ha besökt fler än dessa $K$ platser på vägen från $X$ till $Y$.
+
+Din uppgift är nu att hjälpa polisen att hitta de platser som möjligtvis kan vara $Y$, under förutsättning att Waxel tog en \textbf{kortaste sekvens av vägar}\footnote{Detta innebär att summan av längderna av de vägar som Waxel färdades längs är så liten som möjligt.} från $X$ till $Y$.
+Det är möjligt att det inte finns några sådana platser alls, om vittnesmålen inte stämmer överens med någon kortaste väg.
+
+\section*{Indata}
+Den första raden innehåller tre heltal:
+\begin{itemize}
+\item antalet platser i staden, $N$ ($2 \leq N \leq 2\cdot 10^5$),
+\item antalet vägar i staden, $M$ ($1 \leq M \leq 2 \cdot 10^5$), och
+\item antalet vittnesmål, $K$ ($1 \leq K \leq N$).
+\end{itemize}
+
+Den andra raden innehåller de $K$ \emph{olika} heltalen $a_1, \dots, a_K$ ($1 \leq a_i \leq N$), de platser som Waxel besökte.
+
+De $M$ följande raderna beskriver de olika vägarna i staden.
+Den $i$:te raden innehåller de tre heltalen $u_i$, $v_i$ ($1 \leq u_i \not= v_i \le N$) och $w_i$ ($1 \leq w_i \leq 10^9$), vilket innebär att den $i$:te vägen förbinder platserna $u_i$ och $v_i$ och har längd $w_i$ meter.
+Det är garanterat att det går att ta sig mellan vilka två platser som helst genom att färdas längs en sekvens av vägar och att det mellan varje par av platser finns högst en väg som förbinder platserna.
+
+\section*{Utdata}
+På den första raden ska du skriva ut antalet noder som kan vara $Y$.
+Notera att detta tal kan vara $0$.
+
+På den andra raden ska du skriva ut samtliga noder som kan vara $Y$.
+Dessa ska skrivas ut separerade av blanksteg i \textbf{ökande} ordning.
+
+\section*{Poängsättning}
+Din lösning kommer att testas på en mängd testfallsgrupper.
+För att få poäng för en grupp så måste du klara alla testfall i gruppen.
+
+\noindent
+\begin{tabular}{| l | l | p{10cm} |}
+\hline
+Grupp & Poängvärde & Gränser \\ \hline
+$1$    & $5$         & Det finns exakt $N - 1$ vägar, som förbinder platserna $1$ och $2$, $2$ och $3$ osv. upp till $N - 1$ och $N$ \\ \hline
+$2$    & $16$         & Det finns bara en sekvens av (icke-upprepande) vägar mellan varje par av platser, vilket har som konsekvens att $M = N - 1$ \\ \hline
+$3$    & $15$         & $N,M \leq 100$ \\ \hline
+$4$    & $17$         & $N,M \leq 1\,000$ \\ \hline
+$5$    & $15$         & $N,M \leq 10^5$ och $K \leq 5$ \\ \hline
+$6$    & $32$         & Inga ytterligare begränsningar \\ \hline
+\end{tabular}
+
+\section*{Förklaring av exempelfall}
+I exempel $1$ är platserna $1,2,4,5$ möjliga mål för Waxel.
+För att komma till $2$ hade han kunnat ta vägen $5-6-1-2$.
+
+I exempel $2$ finns det ingen kortaste väg som passerar de givna noderna.
+Svaret är alltså $0$.
+
+I exempel $3$ finns det ganska många möjligheter.
+För att komma till $2$ hade Waxel t.ex. kunnat ta vägen $6-7-5-3-1-2$.

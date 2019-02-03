@@ -1,0 +1,35 @@
+\problemname{Poplåtar}
+Ditt band \emph{The Length-First Searchers} har skrivit en ny låt.
+Musiken är förtrollande och texten är klatschig, så den kan mycket väl bli en listetta.
+
+Det enda som återstår innan du och ditt band kan åka in till studion och spela in låten är att kombinera musiken med texten.
+Du har redan bestämt att låten ska börja med ett intro, följt av en refräng och avsluta med ett outro (det är ändå ingen som tycker om verser nu för tiden).
+Under varje del av låten kommer du sjunga en bit av texten.
+Under introt och outrot kan du sjunga vad som helst, men under refrängen måste du sjunga på ett mer ordnat sätt: en textrad i taget.
+För att stämma överens rytmiskt med musiken måste varje rad av refrängen dessutom ha samma längd på varje textrad.
+Du behöver inte faktiskt sjunga något under introt och outrot, men refrängen måste bestå av minst två rader.
+
+Det kan finnas väldigt många sätt att välja vilka bitar av texten som ska tillhöra respektive del, så istället för att välja en på måfå bestämmer du dig för att maximera \emph{rimvärdet} i refrängen.
+Rimvärdet defineras på följande vis: låt $N$ vara antalet rader i refrängen och $S$ vara längden på det det längsta gemensamma suffixet som alla rader har gemensamt.
+Då är rimvärdet lika med $N \cdot S$.
+
+\section*{Indata}
+Den första och enda raden i indatan består av en sträng, låtens text.
+Strängen innehåller enbart små bokstäver (\texttt{a-z}) och understreck (``\texttt{\_}'').
+Dess längd är mellan $2$ och $15\,000$.
+
+\section*{Utdata}
+Du ska skriva ut ett enda heltal: det största möjliga rimvärdet du kan uppnå.
+
+\section*{Poängsättning}
+Din lösning kommer att testas på en mängd testfallsgrupper.
+För att få poäng för en grupp så måste du klara alla testfall i gruppen.
+
+\noindent
+\begin{tabular}{| l | l | l |}
+\hline
+Grupp & Poängvärde & Gränser \\ \hline
+$1$   & $30$       & Strängens längd är högst $400$ \\ \hline
+$2$   & $30$       & Strängens längd är högst $4\,000$ \\ \hline
+$3$   & $40$       & Strängens längd är högst $15\,000$ \\ \hline
+\end{tabular}
