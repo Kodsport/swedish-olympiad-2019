@@ -1,0 +1,8 @@
+name: Pop Song
+author: Simon Lindholm, Johan Sannemo, Mårten Wiman
+license: cc by-sa
+rights_owner: Simon Lindholm, Johan Sannemo, Mårten Wiman
+source: Programmeringsolympiadens lägertävling 2019
+type: scoring
+limits:
+    time_multiplier: 4
