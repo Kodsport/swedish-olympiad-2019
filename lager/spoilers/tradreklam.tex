@@ -1,0 +1,33 @@
+\section*{Trädreklam}
+	
+	Problemet blir något enklare att implementera om man istället för att göra reklam i kanter (vägar) gör reklam i den nod
+	(stad) som ligger i den bortre änden av varje kant (sett från huvudstaden).
+	
+  Notera att om man gör reklam i två noder $A$ och $B$ sådana att $B$ är en del av subträdet rotat i $A$, så kommer reklamen i $B$ inte
+	tillföra någonting eftersom alla personer som åker genom $B$ också kommer åka genom $A$.
+	
+	Lösningsideén är att göra en pre-order traversering och sedan en knapsack-liknande DP över denna. DP:n skiljer sig
+	från en vanlig knapsack genom att man i fallet då man väljer att göra reklam ``skippar'' det subträdet.
+	Detta kan man göra genom att man, istället för att rekursera till nästa element, rekurserar till det element som kommer
+	efter subträdet. I en pre-order traversering kommer alla noder i ett subträd ligga konsekutivt
+	och kan därmed hoppas över om man förberäknar antalet noder i varje subträd.
+	
+	Likt en knapsack definierar vi vår DP-funktion som: givet ett index i traverseringen ($i$) och hur många kronor som
+	finns att spendera, vad är det maximala antalet personer från städer till höger om $i$ som får se reklamen om vi
+	sätter upp reklam optimalt bland dessa städer?
+	
+	Som en rekursiv funktion:
+	\[
+	f(i, b) =
+		\begin{cases} 
+		0 & i > N \\
+		f(i + 1, b) & b < c_i \\
+		max(f(i + 1, b), f(i + s_i, b - c_i) + p_i) & 
+		\end{cases}
+	\]
+	
+	Där $s_i$ är antalet noder i subträdet med rot i nod $i$ och $p_i$ är det totala antalet personer i samma subträd.
+	DP:n fungerar alltså som en vanlig knapsack förutom att man adderar $s_i$ till $i$ istället för $1$ i fallet
+	då man väljer att göra reklam.
+	
+	Tidskomplexiteten blir $O(NB)$.

@@ -1,0 +1,89 @@
+\section{Poplåtar}
+Poplåtar är i botten en simuleringsuppgift, som går att lösa olika optimerat med lite olika tidskomplexiteter.
+
+\subsection*{Naiv simuleringslösning}
+En metod vi skulle kunna tänka oss är följande naiva lösning:
+loopa över startpunkt och slutpunkt för refrängen.
+Loopa över storleken av refrängens textrader.
+Loopa över hela refrängen och beräkna längden av det delade suffixet.
+Skriv ut maximum av alla dessa svar.
+
+Det är lätt att tänka att den här lösningen är alldeles för långsam -- vi har trots allt (minst) 4 nästlade loopar, som alla går upp till $N$.
+Vi kan dock notera att när vi loopar över textradens längd så behöver vi bara loopa över alla tal som refrängens längd är delbar med.
+Refrängens längd kommer i princip att vara ett slumpmässigt tal mellan $1$ och $N$, och
+ett slumpmässigt tal kommer att vara delbart med $2$ med sannolikhet $1/2$, $3$ med sannolikhet $1/3$, o.s.v.
+I genomsnitt kommer talet därför ha ungefär $1/1 + 1/2 + 1/3 + \dots + 1/N = O(\log N)$ delare.
+
+Tidskomplexiteten på den här lösningen är därmed $O(N^3 \log N)$.
+Konstantfaktorn är dessutom liten -- vi loopar så att $\text{start} < \text{slut}$, och i den innersta loopen loopar vi bara upp till $(\text{slut} - \text{start})$.
+Detta vinner en faktor $6$ över vad man naivt kanske tänker sig.
+Dessutom är mängden arbete som utförs i den innersta loopen väldigt lite -- bara en jämförelse av två tecken.
+$O(N^3 \log N)$ går därför igenom med marginal för $N = 400$ och en $2$ sekunders tidsgräns, förhoppningsvis även i Python.
+
+\subsection*{Mindre naiv simuleringslösning}
+En observation vi skulle kunna göra i ovanstående lösning är att flaskhalsen är att beräkna längder på gemensamma suffix.
+Dessa suffix har dock en hel del överlapp!
+Det finns nämligen bara $O(N^2)$ suffix vi möjligen skulle kunna vilja jämföra, och
+vi skulle kunna förberäkna antal tecken de har gemensamt i $O(N^3)$ tid (eller $O(N^2 \log N)$ med stränghashning + binärsökning, men det behövs inte).
+
+Om vi byter ut den innersta nästlade loopen till att loopa över alla textrader och använda en förberäknad lookup-array för att jämföra intilliggande suffix så
+uppträder flaskhalsen när textradslängden är $1$, och vi reducerar vår körningstid till $O(N^3)$.
+
+Med lite optimeringar går det att få igenom den här lösningen på delgrupp 2.
+
+\subsection*{Smartare lösning}
+Det som gör ovanstående lösningar långsamma är att de loopar över både start- och slutpunkt, och sen utför en massa jobb.
+Går det att loopa över bara startpunkt, sen utföra allt jobb, och bara loopa över slutpunkt mot slutet?
+
+Svaret är att ja, det går det. Låt oss till att börja med loopa över alla möjliga textradslängder, och prova att starta från absoluta början av strängen.
+Om vi loopar över alla textrader kan vi då få ut en array av tal som beskriver vad de gemensamma suffixlängderna är mellan
+varje par av intilliggande textrader.
+Vi kan därefter loopa över hur många av dessa textrader vi vill ha med, och hålla koll på vårt nuvarande minimum.
+För varje antal textrader har vi ett kandidatsvar som är det antal multiplicerat med det nuvarande minimumet.
+
+För att prova nästa startposition är det stora problemet att vi snabbt måste få ut en ny array av gemensamma suffixlängder.
+Det finns två sätt vi skulle kunna göra det på: antingen kan vi använda hashning + binärsökning som nämnt ovan, eller så kan vi
+återanvända vår tidigare array.
+Om vi flyttar startpositionen ett steg lägger vi ju enbart på ett tecken i varje suffix.
+Om det tecknet är samma för ett par av intilliggande textrader så ökar deras
+gemensamma suffixlängd med $1$ (om den inte är lika med textradens längd),
+annars blir den nya gemensamma suffixlängden $0$.
+
+Vi kan därefter loopa igenom textraderna för den här nya startpositionen, och upprepa för varje startposition.
+
+Körningstiden för detta ges av
+
+\[ \sum_{\text{len} \le N} \left( N + \sum_{\text{start} \le N}\frac{N}{\text{len}} \right) = O(N^2 \log N), \]
+
+vilket är tillräckligt för delgrupp 2.
+
+\subsection*{Ännu smartare lösning}
+Det går att optimera ovanstående ännu lite mer, och få bort logfaktorn.
+Det vi kan göra är att loopa startpositionen enbart över positionerna $0, 1, \dots, \text{len}-1$,
+och sedan ta ut den bästa delsekvensen av textrader på ett smartare sätt än att bara kolla på prefix av arrayen som beskriver de gemensamma suffixlängderna.
+
+Vi kan formulera vårt delproblem så här:
+givet en array av tal, hitta det delintervall för vilket minimum av talen i det intervallet multiplicerat med intervallängden $+ 1$ är så stor som möjligt.
+
+Detta går att lösa i linjär tid!
+Det vi vill göra är att för varje tal räkna ut vad det maximala intervallet är som har det här talet som minimum, och det kan vi göra genom en svepning.
+Vi kan anta WLOG att alla tal i sekvensen är unika (genom att t.ex. hantera elementen som par $(tal, index)$ som sorteras primärt baserat på tal, sekundärt på index).
+
+Vi sveper från vänster till höger, och håller en (ökande) stack av de tal för vilka vi ännu inte sett något mindre tal till höger om det, tillsammans med deras positioner.
+När vi stöter på ett tal, kolla på översta talet i stacken.
+Om detta är större än vårt nuvarande tal så betyder det att om vi vill att det talet ska vara minimum, så är det största intervallet vi kan välja det som sträcker sig mellan
+det näst översta talet i stacken, och vår nuvarande position.
+Hantera detta som ett potentiellt svar, och poppa därefter stacken.
+Efter att vårt nuvarande tal är större än det sista talet i stacken (och därmed allt däri), pusha det på stacken.
+
+Om vi initialt lägger till talet $-\infty$ (med position $-1$) i stacken, och i slutet av sekvensen lägger talet $-\infty$, så kommer efter genomsvepningen alla tal ha poppats från
+stacken, och fått sina svar beräknade.
+På så sätt har vi löst delproblemet på linjär tid.
+
+Körningstiden kör den här smartare lösningen ges av
+
+\[ \sum_{\text{len} \le N} \left( N + \sum_{\text{start} \le \text{len}}\frac{N}{\text{len}} \right) = O(N^2), \]
+
+vilket löser delgrupp 3.
+(Gränsen för $N$ behövde dessvärre vara ganska hög, för att undvika att optimerade lösningarna till de två första delgrupperna gick igenom även på den sista.
+Lite konstantfaktoroptimeringar kan därmed krävas.)
