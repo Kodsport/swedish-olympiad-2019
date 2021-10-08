@@ -17,7 +17,9 @@ Det finns $M$ olika biljettyper, där biljettyp $i$ har giltighetstid $g_i$ daga
 Biljetterna gäller endast hela dygn och gäller i exakt $g_i$ dygn.
 Det betyder att om biljett $i$ köps på dag $d$ är den giltig under dagarna $d,d+1,\ldots,d+g_i-1$.
 Måna är på jobbresa under $K$ dagar, nämligen dagarna $r_1 \dots r_K$.
+Om en jobbresa inträffar på samma dag som Måna hälsar på Solveig så kan Måna köpa en billigare biljett och använda den under samma dag.
 Notera att en biljett köpt under någon av dessa dagar också börjar gälla på en gång, precis som de andra -- man får aldrig skjuta upp dagen då en biljett ska börja gälla.
+
 Hjälp Måna att köpa omloppsbanebiljetter och berätta vad det minsta möjliga priset är! 
 
 \section*{Indata}
@@ -61,6 +63,9 @@ $6$    & $10$         & Inga ytterligare begränsningar \\ \hline
 
 \section*{Förklaring av exempelfall}
 I det första exemplet är det billigast att köpa en biljett som gäller fyra dagar till priset av $8$.
+
 I det andra exemplet är det billigast att köpa två endagarsbiljetter, till priset av totalt $12$.
+
 I det tredje exemplet är det billigast att köpa en fyradagarsbiljett till priset $7$ (eftersom Måna är på jobbresa dag $1$).
+
 I det fjärde exemplet är det billigast att köpa en endagsbiljett dag $1$ och en femdagarsbiljett dag $5$ -- vilket ger totalt pris $6$.

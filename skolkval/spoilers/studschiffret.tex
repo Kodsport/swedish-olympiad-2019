@@ -1,0 +1,8 @@
+\section*{B - Studschiffret}
+Först simulerar vi studsandet och placerar ut talen 0 till \texttt{str.size()-1} i rutnätet.
+Därefter läser vi av rutnätet rad för rad och lägger talen i en lista \texttt{encNum}.
+Denna lista beskriver nu för varje bokstav i den krypterade strängen vilket index
+den bokstaven har i den ursprungliga strängen,
+så nu går vi helt enkelt igenom alla bokstäver i den kryptarade strängen
+ och placerar varje bokstav på rätt plats i den ursprungliga strängen.
+\lstinputlisting{studschiffret.cpp}

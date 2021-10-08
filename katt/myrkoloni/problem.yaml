@@ -1,0 +1,5 @@
+source: Programmeringsolympiadens KATT-tävling 2019
+license: permission
+type: scoring
+grading:
+    show_test_data_groups: yes

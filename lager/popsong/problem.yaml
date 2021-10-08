@@ -4,5 +4,7 @@ license: cc by-sa
 rights_owner: Simon Lindholm, Johan Sannemo, Mårten Wiman
 source: Programmeringsolympiadens lägertävling 2019
 type: scoring
+grading:
+    show_test_data_groups: yes
 limits:
     time_multiplier: 4

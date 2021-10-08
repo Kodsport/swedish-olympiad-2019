@@ -1,0 +1,72 @@
+\def\version{jury-2}
+\problemname{Once in a Blue Moon}
+\noindent
+Luna and her brother Solomon live very far from each other.
+To make sure they still meet now and then Luna has already booked in a number of days in which she will go and visit Solomon.
+The only way for Luna to get to Solomon is by taking the Orbital.
+Since Solomon is pretty hot-tempered, Luna never stays during the night but goes there and home during the same day.
+It's probably for the best, since Luna works night shifts.
+
+Taking the Orbital of course costs money -- orbiting is not a natural law!
+There are different types of tickets for the Orbital, where each ticket has a certain time of validity and a price (for example there may be a moonthly ticket).
+A ticket with a longer time of validity is always more expensive than a ticket with a shorter time of validity.
+Usually, Luna shops at WHMars, but sometimes she travels because of work and can instead visit Sevenus Elevenus, where everything costs half as much as at WHMars.
+
+Luna is visiting Solomon during $N$ different days, $d_1, \dots, d_N$.
+There are $M$ different types of tickets, where the $i$'th ticket is valid for $g_i$ days and costs $p_i$.
+$p_i$ is here the price of the ticket at WHMars.
+The tickets are only valid for an entire day and night and is valid for exactly $g_i$ days and nights.
+This means that if ticket $i$ is purchased during day $d$, it is valid during days $d, d+1, \dots, d+g_i-1$.
+If a work trip happens on the same day as a visit to Solomon, Luna is able to buy the cheaper ticket and use it during that day.
+Note that a ticket purchased during any of these days becomes valid immediately -- you can never delay activating a ticket.
+
+Help Luna to buy orbital tickets for all her visits to Solomon and tell her what the smallest possible price is!
+
+\section*{Input}
+The input contains five lines.
+The first line contains three integers:
+\begin{itemize}
+        \item the number of days $N$ during which Luna visits Solomon ($1\leq N\leq 10^5$)
+        \item the number of types of tickets $M$ ($1\leq M\leq 10$)
+        \item the number of days $K$ during which Luna travels due to work ($0\leq K\leq 10^5$).
+\end{itemize}
+
+The second line contains $N$ integers $d_i$ ($1 \leq d_i \leq 5\cdot10^5$), the days during which Luna visits Solomon.
+
+The third line contains $M$ integers $g_i$ ($1 \leq g_i \leq 5\cdot10^5$), the times of validity for the various tickets.
+
+The fourth line contains $M$ integers $p_i$ ($2 \leq p_i \leq 10^4$), the prices for the different types of the tickets at WHMars. $p_i$ is always even.
+
+The fifth and final line contains $K$ integers $r_i$ ($1 \leq r_i \leq 5\cdot10^5$), the days during which Luna travels due to work and can buy tickets for half the price.
+
+The numbers on the four last lines are given in strictly increasing order.
+
+\section*{Output}
+Output should contain a single integer, the smallest amount Luna must pay so that she always has a valid ticket when she travels to Solomon.
+
+She does not need any kind of ticket when she goes on a work trip.
+
+\section*{Scoring}
+Your solution will be tested on a set of test case groups.
+To get the points for a group, you need to pass all the test cases in the group.
+
+\noindent
+\begin{tabular}{| l | l | l |}
+\hline
+Group & Points & Constraints \\ \hline
+$1$    & $15$         & $N, K\leq 4, M\leq 4, d_i,g_i,r_i\leq 7$ \\ \hline
+$2$    & $9$         & $N, K\leq 300, d_i,g_i,r_i\leq 1000$ \\ \hline
+$3$    & $23$         & $N, K\leq 300$ \\ \hline
+$4$    & $28$         & $K=0$ \\ \hline
+$5$    & $15$         & $g_i=i$ for every $1\leq i\leq M$ \\ \hline
+$6$    & $10$         & No further constraints  \\ \hline
+\end{tabular}
+
+\section*{Explanations of samples}
+In the first sample it's cheapest to buy a single ticket valid for 4 days at the price of $8$.
+
+In the second sample it's cheapest to buy two tickets vlaid a single day, at a total price of $12$.
+
+In the third sample it's cheapest to buy a single ticket valid for 4 days to the price of $7$ (since Luna is on a work trip day $1$).
+
+In the fourth sample it's cheapest to buy a ticket valid one day at day $1$ and a ticket valid five days at day $5$ -- for a total cost of $6$.

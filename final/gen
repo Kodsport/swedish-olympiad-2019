@@ -1,0 +1,22 @@
+#!/bin/bash
+
+set -e
+
+if [ "$#" -ne 2 ]; then
+		echo "Usage: ./gen PROBLEM LANGCODE"
+		exit
+fi
+
+cp templates/template.tex compile.tex
+sed -i "s/PROBLEM/$1/" compile.tex
+sed -i "s/LANG/$2/" compile.tex
+
+pdflatex compile.tex
+pdflatex compile.tex
+
+mv compile.pdf $1-$2.pdf
+
+rm -f *.log
+rm -f *.aux
+rm -f *.toc
+rm -f compile.tex

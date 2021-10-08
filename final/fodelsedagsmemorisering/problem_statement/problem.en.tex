@@ -1,0 +1,41 @@
+\def\version{jury-3}
+\problemname{Birthday Memorization}
+\noindent
+Krarkl wants to learn the birthdays of all his $N$ friends, so he knows whom to congratulate each day.
+Unfortunately collisions sometimes arise, meaning several friends may have the same birthday.
+This may confuse Krarkl, so he decided to only remember the birthday of the friend he likes the most in case of a collision.
+Given a list of birthdays for each of his friends and how much Krarkl likes each friend, print what friends Krarkl will remember the birthday for.
+
+\section*{Input}
+The first line of input contains an integer $N$ ($1 \leq N \leq 2\,000$), the number of friends.
+
+Then $N$ lines follow, one for each friend.
+The $i$'th of these lines contains a string with the $i$'th friend's first name $S_i$ ($S_i$ will be between $1$ and $10$ letters long), an integer $C_i$ ($0 \leq C_i \leq 100\,000$) denoting how much Krarkl likes the friend, and their birthday given in the format \texttt{DD/MM} (where \texttt{DD} is a day between \texttt{01} and \texttt{31}, and \texttt{MM} is a month between \texttt{01} and \texttt{12}).
+A higher value of $C_i$ means that Krarkl likes that friend more.
+
+The birthdays will be real dates during 2020 (a leap year), for example \texttt{28/02} for February 28.
+All names will consist only of small English letters (\texttt{a-z}) with a capital first letter (\texttt{A-Z}).
+All $C_i$ will be distinct.
+
+\section*{Output}
+On the first line, print an integer $K$ -- the number of friends whose birthdays Krarkl will remember.
+
+This should be followed by $K$ lines containing a single word each, the first names of the chosen friends, \textbf{in lexicographical order}.
+
+\section*{Scoring}
+Your solution will be tested on a number of test case groups.
+To get the points for a group, you need to pass all test cases in the group.
+
+\noindent
+\begin{tabular}{| l | l | l |}
+\hline
+Group & Points & Constraints \\ \hline
+$1$    & $30$         & $N \leq 100$ \\ \hline
+$2$    & $70$         & No further constraints \\ \hline
+\end{tabular}
+
+\section*{Explanation of samples}
+In the first sample, Sanna and Simon have the same birthday.
+Since Krarkl likes Sanna less than Simon ($1 < 2$), Krarkl will only remember Simon's and Saga's birthdays.
+
+In the second sample, Krarkl has really bad luck and will miss half of his friends' birthdays.

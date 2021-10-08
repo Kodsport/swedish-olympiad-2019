@@ -1,0 +1,21 @@
+\section*{E - Robottävlingen}
+Att hitta maximala antalet är enkelt, det är bara att för varje ruta i rutnätet ta minimumvärdet av kolumnvärdet och radvärdet.
+
+Att hitta minimala antalet är svårare. Vi börjar med att betrakta hur många femmor vi måste sätta ut, om vi vill ha så få som möjligt.
+Vi måste såklart minst lägga en femma i varje kolumn som har värdet 5 (hur skulle kolumnen fått värdet 5 om den inte innehåller en femma?),
+och vi måste på samma sätt även lägga en femma i varje rad.
+Om $x_5$ är antalet rader med värdet 5 och $y_5$ antalet kolumner med värdet 5 behöver vi därför minst $max(x_5,y_5)$ stycken femmor.
+Så länge det finns både någon 5-kolumn utan femma i sig och en 5-rad som inte innehåller en femma så kan vi placera en femma i den rutan som 
+kolumnen och raden delar. Ifall vi bara har en 5-rad så kan vi placera ut en femma i den raden i någon kolumn som redan har en femma i sig,
+och på samma sätt kan vi göra om vi bara har en 5-kolumn. Alltså går $max(x_5,y_5)$ antal femmor alltid att uppnå.
+
+Samma argument kan vi använda för 4,3 och 2 får att bevisa att minsta antal fyror, treor och tvåor som går att uppnå är $max(x_4,y_4)$, $max(x_3,y_3)$ och $max(x_2,y_2)$ respektive.
+Skillnaden är att man måste notera att när man till exempel har en 4-rad som man måste placera en fyra i, men inga 4-kolumner,
+så kan vi placera fyran i någon av 5-kolumnerna istället. Det kommer alltid antingen finnas en 4-kolumn eller 5-kolumn att placera i,
+eftersom det måste enligt raden vi jobbar med finnas en fyra någonstans, så någon kolumns maxvärde är minst 4.
+
+Alla rutor som vi inte redan placerat något i placerar vi ettor i.
+
+Notera att i lösningen nedan placerar vi aldrig faktiskt ut något, utan vi bara räknar direkt ut vad summan blir om vi hade placerat ut det.
+
+\lstinputlisting{robottavlingen.cpp}

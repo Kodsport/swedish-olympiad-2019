@@ -1,0 +1,52 @@
+\problemname{Myrkolonin}
+\noindent
+
+I heltalsskogen finns en stor koloni med trädmyror.
+Heltalsskogen består av ett oändligt stort tvådimensionellt plan där ett träd finns på varje punkt med heltalskoordinater.
+Myrornas koloni består av ett antal punkter med heltalskoordinater, där vissa par av närliggande punkter är sammankopplade med gångar (där två punkter $(x_1, y_1)$ och $(x_2, y_2)$ räknas som närliggande om $|x_1-x_2|+|y_1-y_2| = 1$).
+Kolonin består alltså av en graf.
+Det som är speciellt med trädmyror, förutom att de bor i träd, är att deras koloni bildar ett träd -- d.v.s. den är sammanhängande och har exakt $N-1$ gångar där $N$ är antalet punkter som kolonin består av.
+
+Myrforskaren Anthony tänker utföra ett experiment på kolonin.
+Han vill undersöka vad som händer om man tar ett rektangelformat område och skärmar av det från resten av kolonin.
+Hans teori är att myrorna som hamnar i olika komponenter av grafen kommer bilda egna kolonier och starta krig mot de andra kolonierna.
+En rektangel är en mängd med alla de heltalspunkter $(x,y)$ som uppfyller $x_1 \leq x \leq x_2$, $y_1 \leq y \leq y_2$, där $x_1, y_1, x_2, y_2$ är givna heltal.
+
+Anthony har inte bestämt sig för vilken rektangel han tänker skärma av än, men han har ett antal idéer.
+Din uppgift är att, för varje rektangel, avgöra hur många komponenter av grafen som bildas inuti rektangeln om man skärmar av den.
+Två punkter är i samma komponent om det går att ta sig från den ena till den andra genom gångar, utan att besöka en punkt utanför rektangeln. Anthony är alltså bara intresserad av antalet komponenter i rektangeln han skärmar av, resten av kolonin struntar han i.
+
+\section*{Indata}
+Första raden innehåller två heltal $A$ och $B$ ($1 \leq A, B \leq 150\,000$), storleken på området som kolonin finns i.
+
+Andra raden innehåller två heltal $N$ och $Q$ ($2 \leq N \leq 150\,000$, $1 \leq Q \leq 150\,000$), antalet punkter i kolonin och antalet rektanglar.
+
+Följande $N-1$ rader innehåller information om gångarna i kolonin. Varje gång har en av två typer:
+\begin{enumerate}
+  \item \texttt{h} $x$ $y$, betyder att punkterna $(x,y)$ och $(x+1,y)$ är sammankopplade med en gång ($1 \leq x \leq A-1$, $1 \leq y \leq B$). 
+  \item \texttt{v} $x$ $y$, betyder att punkterna $(x,y)$ och $(x,y+1)$ är sammankopplade med en gång ($1 \leq x \leq A$, $1 \leq y \leq B-1$). 
+\end{enumerate}
+
+Följande $Q$ rader beskriver rektanglarna.
+Varje rad består av $4$ heltal $x_1$, $y_1$, $x_2$ och $y_2$ ($1 \leq x_1 \leq x_2 \leq a$, $1 \leq y_1 \leq y_2 \leq b$).
+Rektanglen består nu av alla punkter $(x,y)$ som uppfyller $x_1 \leq x \leq x_2$ och $y_1 \leq y \leq y_2$.
+
+Alla kolonins koordinater $(x, y)$ kommer uppfylla $1 \leq x \leq A$, $1 \leq y \leq B$.
+Det är garanterat att grafen som bildas av punkterna och gångarna är ett träd.
+
+\section*{Utdata}
+Du ska skriva ut $Q$ rader, en för varje rektangel: antalet komponenter för varje rektangel.
+
+\section*{Poängsättning}
+Din lösning kommer att testas på en mängd testfallsgrupper.
+För att få poäng för en grupp så måste du klara alla testfall i gruppen.
+
+\noindent
+\begin{tabular}{| l | l | l |}
+\hline
+Grupp & Poängvärde & Gränser \\ \hline
+$1$    & $18$         & $1 \leq A, B \leq 100$, $2 \leq N \leq 100$, $1 \leq Q \leq 100$ \\ \hline
+$2$    & $17$         & $1 \leq A, B \leq 3000$, $2 \leq N \leq 3000$, $1 \leq Q \leq 3000$ \\ \hline
+$3$    & $33$         & $1 \leq A, B \leq 3000$, $2 \leq N \leq 100\,000$, $1 \leq Q \leq 100\,000$ \\ \hline
+$4$    & $32$         & $1 \leq A, B \leq 150\,000$, $2 \leq N \leq 150\,000$, $1 \leq Q \leq 150\,000$ \\ \hline
+\end{tabular}
