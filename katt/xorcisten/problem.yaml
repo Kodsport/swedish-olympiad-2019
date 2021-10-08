@@ -1,0 +1,8 @@
+source: Programmeringsolympiadens KATT-tävling 2019
+license: permission
+type: scoring
+grading:
+    show_test_data_groups: yes
+limits:
+    output: 24
+    time_multiplier: 4

@@ -1,0 +1,10 @@
+\section*{C - Renovering}
+Vi vill para ihop maximalt antal spikar som vi redan har med spikar som vi behöver,
+på ett sådant sätt så att i varje par är spiken vi behöver kortare eller lika lång som den vi redan har.
+Säg att den längsta spiken som vi redan har har längd $L$.
+Den vill vi para ihop med den längsta spiken som vi behöver, som uppfyller att dess längd $\leq L$,
+eftersom ju längre spik desto större krav ställer spiken på vilka den kan paras ihop med.
+När vi parat ihop den längsta spiken vi redan har med den längsta vi behöver som den kan paras ihop med så tar vi bort dessa två och upprepar.
+När den längsta spiken vi har inte längre kan paras ihop med någon, eller när alla våra spikar är ihopparade, är vi färdiga.
+
+\lstinputlisting{renovering.cpp}

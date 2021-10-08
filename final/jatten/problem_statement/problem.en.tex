@@ -1,0 +1,43 @@
+\def\version{jury-3}
+\problemname{The Giant}
+You have been captured by an evil giant.
+You are both in a $N \times M$ big cave consisting of all points with integer coordinates $(x, y)$ such that $0 \le x < N, 0 \le y < M$.
+The giant plans to eat you, so you must escape before it's too late!
+The giant is standing with his feet at two different points in the cave.
+To escape, you plan to put a bar of gold at a third point in the cave.
+The giant will then bend down to pick the bar up.
+If the positions for the giant's feet and the gold bar together form an obtuse triangle, the giant will lose his balance and fall down.
+In this case, you will get an opportunity to run.
+
+Write a program that, given the size of the cave, the coordinates for the giant's right foot $(x_1, y_1)$ and the coordinates for the giant's left foot ($x_2, y_2$), finds a point with integer coordinates at which to place the bar of gold, so that the three points form a \textbf{non-degenerate}\footnote{A triangle is non-degenerate if its three vertices do not lie on the same line, \url{https://en.wikipedia.org/wiki/Degeneracy_(mathematics)}} obtuse triangle.
+
+\section*{Input}
+The first line of the input contains two integers $N$ and $M$ ($1\leq N, M \leq 10^9$), the size of the cave.
+
+The second line contains four integers $x_1$, $y_1$, $x_2$ and $y_2$ ($0\leq x_1, x_2 < N$, $0\leq y_1, y_2 < M$), the coordinates for the giant's two feets.
+These points will always be different.
+
+\section*{Output}
+Print two integers $x_3, y_3$ ($0\leq x_3 < N$, $0\leq y_3 < M$) on the same line, so that the point with these coordinates together with the two points in the input forms a non-degenerate obtuse triangle.
+The input is constructed so that there is always at least one such point.
+
+\section*{Scoring}
+Your solution will be tested on a set of test case groups.
+To get the points for a group, you need to pass all the test cases in the group.
+
+\noindent
+\begin{tabular}{| l | l | l |}
+\hline
+Group & Points & Constraints \\ \hline
+$1$    & $30$         & $1\leq N \leq 1000$ and $1\leq M \leq 1000$ \\ \hline
+$2$    & $25$          & $1000\leq N\leq 10^9$ and $1000\leq M \leq 10^9$ \\ \hline
+$3$    & $15$          & $x_1 \neq x_2$ and $y_1 \neq y_2$ \\ \hline
+$4$    & $30$         & No further constraints \\ \hline
+\end{tabular}
+
+\section*{Explanation of sample 1}
+In example 1, the points $(1,1)$, $(3,4)$ and $(1,2)$ form an obtuse triangle, with the obtuse angle at $(1,2)$. $(1,2)$ is also within the cave.
+
+The point $(1,4)$ would not have been a correct answer, since that would form a right triangle rather than an obtuse triangle.
+
+The point $(5,7)$ would not have been a correct answer, since that would form a degenerate triangle, and $(5,7)$ is also placed outside of the cave.

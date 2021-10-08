@@ -1,0 +1,55 @@
+\def\version{jury-2}
+\problemname{Forest Fire}
+\noindent
+A fire has broken out in the integer forest!
+The integer forest consists of an infite two-dimensional plane where there is a tree at each point with integer coordinates.
+Currently, $N$ of these trees are on fire.
+Each minute, the fire spreads from every burning tree to its four neighbours (the trees immediately north, east, west and south).
+To stop the fire, the fire marshals have chopped down $M$ trees.
+A chopped-down tree can not catch fire, so these points act like a kind of wall to the flames.
+You are interested in the damage that the fire will cause.
+In $T$ minutes, there will be a great rain storm that will put out the entire fire.
+Therefore, you want to know how many trees are on fire after $T$ minutes.
+
+\section*{Input}
+The first line contains three integers:
+\begin{itemize}
+        \item the number of burning trees $N$ ($1 \leq N \leq 100$),
+        \item the number of chopped-down trees $M$ ($0 \leq M \leq 100$),
+        \item and the number of minutes to the great rain storm $T$ ($0 \leq T \leq 10^9$).
+\end{itemize}
+
+The following $N$ lines contains two integers $x_i,y_i$ ($0 \leq x_i, y_i < 10^5$), the coordinates of the burning trees.
+
+The following $M$ lines contains two integers $x_i,y_i$ ($0 \leq x_i, y_i < 10^5$), the coordinates of the chopped-down trees.
+
+No two trees, either burning or chopped down, will have the same coordinates.
+
+\section*{Output}
+Output a single integer, the number of trees that are on fire after $T$ minutes.
+
+\section*{Scoring}
+Your solution will be tested on a set of test case groups.
+To get the points for a group, you need to pass all the test cases in the group.
+
+\noindent
+\begin{tabular}{| l | l | l |}
+\hline
+Group & Points & Constraints \\ \hline
+$1$   & $5$        & $N = 1$, $M = 0$ \\ \hline
+$2$   & $9$        & $T \leq 100$, $M = 0$, $x_i, y_i < 100$\\ \hline
+$3$   & $10$       & $T \leq 400$, $x_i, y_i < 100$ \\ \hline
+$4$   & $11$       & $M = 0$, $x_i, y_i < 100$ \\ \hline
+$5$   & $21$       & $x_i, y_i < 100$ \\ \hline
+$6$   & $15$       & $M = 0$ \\ \hline
+$7$   & $29$       & No further constraints \\ \hline
+\end{tabular}
+
+\section*{Explanations of samples}
+In sample $1$ the fire spreads to $(0,2)$, $(1,3)$ and $(2,2)$.
+In total, there will be $4$ burning trees.
+
+In sample $2$ the only burning tree is surrounded by chopped-down trees.
+There is thus only a single burning tree, despite $T$ being large.
+
+In sample $3$ the fire does not have time to spread since $T = 0$, so the answer is $4$.
