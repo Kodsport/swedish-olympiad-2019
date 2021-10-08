@@ -1,0 +1,228 @@
+\documentclass[a4paper,12pt,oneside]{amsbook}
+\usepackage[T1]{fontenc}
+\usepackage{textcomp}
+%\usepackage{euler}
+%\usepackage{garamond}
+
+\usepackage{newcent}
+%\fontfamily{fxm}\selectfont
+\usepackage{fancyhdr}
+\pagestyle{fancy}
+% Detta paket skoter grafiken
+\usepackage[dvips]{graphicx}
+%\usepackage[pdftex]{graphicx}
+\usepackage{tabularx}
+\usepackage{amsthm}
+\usepackage{amsmath}
+\usepackage[swedish]{babel}
+% For bortkommentering
+\usepackage{verbatim}
+% For att slippa indentering av Sections och SubSections
+\usepackage{indentfirst}
+
+% Har stalls paragrafindentering och avstand mellan stycken och rader mm
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{6pt}
+\setlength{\baselineskip}{12pt}
+% Har definieras sidan
+\setlength{\voffset}{-15mm}
+\setlength{\hoffset}{-5.5mm}
+
+\setlength{\topmargin}{0mm}
+\setlength{\headheight}{10mm}
+\setlength{\headsep}{8mm}
+\setlength{\footskip}{16mm}
+
+\setlength{\evensidemargin}{0mm}
+\setlength{\oddsidemargin}{0mm}
+
+\setlength{\marginparsep}{0mm}
+\setlength{\marginparwidth}{0mm}
+
+\setlength{\textwidth}{170mm}
+\setlength{\textheight}{225mm}
+\setlength{\paperwidth}{210mm}
+\setlength{\paperheight}{297mm}
+\setlength{\headwidth}{170mm}
+% Huvud och Fot
+%\fancypagestyle{}{
+\fancyhf{}\fancyhead[c]{\small{\textit{Svar och rättningsanvisningar
+      till Programmeringsolympiadens skolkval 2019}}}
+\fancyfoot[c]{\thepage}
+\renewcommand{\headrulewidth}{0.4pt}
+\renewcommand{\footrulewidth}{0.4pt}
+\newenvironment{lista}
+{\begin{itemize}
+\setlength{\parindent}{0pt}
+\setlength{\itemsep}{6pt}}
+{\end{itemize}}
+% Uppgifter
+\newcounter{probnr}
+\newenvironment{tal}{%
+\begin{list}
+%{\textbf{\arabic{section}.\arabic{probnr}}} {\usecounter{probnr}
+{\textbf{\arabic{probnr}}} {\usecounter{probnr}
+\setlength{\leftmargin}{0mm}
+\setlength{\rightmargin}{0mm}
+\setlength{\labelwidth}{-1mm}
+\setlength{\labelsep}{1mm}}
+\setlength{\itemsep}{6pt}
+}{\end{list}}
+% Definition av avsnitt: FAKTA, EXEMPEL, PASTAENDE
+\newtheorem{fakta}{Fakta}
+\newtheorem{exempel}{Exempel}
+\newtheorem{problem}{Problem}
+%
+\newtheoremstyle{test}% NAME
+{20pt}      % ABOVESPACE
+{10pt}      % BELOWSPACE
+{\sffamily} % BODYFONT
+{0pt}       % INDENT
+{\scshape}  % HEADFONT
+{}          % HEADPUNCT
+{\newline}  % HEADSPACE
+{}          % CUSTOM-HEAD-SPEC
+
+\theoremstyle{test}
+\newtheorem{program}{Program}
+\newcommand{\sv}[1]{\textsc{#1}}            % Sma versaler
+\newcommand{\fe}[1]{\textbf{#1}}            % FET
+\newcommand{\ku}[1]{\textit{#1}}            % KURSIV
+\newcommand{\cu}[1]{\texttt{#1}}            % Courier
+\newcommand{\sk}[1]{\texttt{#1}}            % Courier
+\newcommand{\rubrik}[1]{\begin{center}\sf\huge{#1}\normalsize\rm\end{center}}
+\begin{document}
+%\DeclareGraphicsExtensions{.jpg,.pdf,.mps,.png,.eps}
+
+
+\specialsection*{Svar och rättningsanvisningar}
+\thispagestyle{fancy}
+\lhead{}
+\begin{itemize}
+%\setlength\itemsep{0.2cm}
+\item Läs igenom \textit{tävlingsreglerna}.
+\item Programmen tas i tur och ordning in i editorn och kompileras.
+Uppstår kompileringsfel betraktas programmet som felaktigt och lösningen
+ges $0$ poäng.
+\item Programmet körs med givna indata enligt nedan. Alternativt, om eleven förberett programmet för det, kan de bifogade indatafilerna användas istället.
+\item Varje testfall
+  med korrekt svar ger 1 poäng.
+\item
+Totalt kan man
+  alltså få 5 poäng för varje uppgift.
+\item Om exekveringstiden för ett testexempel, kört på en modern dator,
+\textit{överskrider 3 sekunder} betraktas körningen av testexemplet som felaktigt.
+\item Det kan vara viktigt att programmet körs i en miljö liknande den som
+programmet utvecklats i, samma version av kompilator eller
+interpretator.
+\item Vid problem i samband med rättningen är det viktigt att det sunda
+förnuftet får råda!
+\item Ett förslag till rättningsprocedur kan vara att låta eleven
+sitta vid datorn.
+\end{itemize}
+
+\vspace{2cm}
+
+\subsection*{Uppgift 1 -- Kuber}
+~\\
+~\\
+{\tt 
+\begin{tabular}{||l||c||c||}\hline\hline
+& {\fe{Indata}} & \fe{Utdata} \\ \hline \hline
+\fe{Test 1} & 10 & 3025 \\ \hline
+\fe{Test 2} & 5 & 225 \\ \hline
+\fe{Test 3} & 31 & 246016 \\ \hline
+\fe{Test 4} & 14 & 11025 \\ \hline
+\fe{Test 5} & 23 & 76176 \\ \hline\hline
+\end{tabular}
+}
+%$$
+
+
+\subsection*{Uppgift 2 -- Studschiffer}
+~\\
+~\\
+{\tt 
+\begin{tabular}{||l||c|c|l||l||}\hline\hline
+& \multicolumn{3}{c||}{\fe{Indata}} & \fe{Utdata} \\ 
+& $N$ & $M$ & Krypterad text & Meddelande \\ \hline \hline
+\fe{T1}& 2 & 8 &\texttt{HJAESN}&\texttt{HEJSAN}\\ \hline                           
+\fe{T2}& 5 & 10 &\texttt{VGAITDPKEN}&\texttt{VADKNEPIGT}\\ \hline                            
+\fe{T3}& 4 & 20 &\texttt{IADANKNOATGNAKDTEVE}&\texttt{INGENKANAVKODADETTA}\\ \hline 
+\fe{T4}& 11 & 7 &\texttt{JIANFGIAHSLOEEPSPINAVSTAT}&\texttt{JAGHOPPASATTVISESIFINALEN}\\ \hline          
+\fe{T5}& 5 & 14 &\texttt{GRTUSRKODKEYAASILDPTISAATTTR}&\texttt{GRATTISDUKLARADESISTAKRYPTOT}\\ \hline 
+\hline
+\end{tabular}
+}
+
+\newpage
+\subsection*{Uppgift 3 -- Renoveringen}
+~\\
+{\tt 
+\begin{tabular}{||l||c|c|l|l||c|l||}\hline\hline
+& \multicolumn{4}{c||}{\fe{Indata}} & \multicolumn{2}{c||}{\fe{Utdata}} \\ 
+& $N$ & $M$ & $x_1, x_2, ..., x_N$ & $y_1, y_2, ..., y_M$  &Antal & Längder \\ \hline \hline
+\fe{Test 1}&3 & 1 & 5 7 8 & 7 & 2 & 5 8 \\ \hline 
+\fe{Test 2}&6 & 3 & 1 2 1 4 100 2 & 1 100 1 & 3 & 2 2 4 \\ \hline 
+\fe{Test 3}&6 & 10 &  2 3 12 8 98 98 & 2 1 2 1 11  &  1 &98  \\ 
+&&&& 9 99 97 27 28 &&\\ \hline  
+\fe{Test 4}&15 & 15 & 20 21 19 27 100 & 20 18 17 18 11& 14 & 19 21 23 23 27   \\ 
+&&& 28 29 23 23 67  & 1 16 18 14 17  && 28 29 43 61 67     \\ 
+&&& 43 97 67 61 78 & 3 9 7 7 9 & & 67 78 97 100    \\ \hline  
+\fe{Test 5}&15 & 10 & 98 99 90 89 76  & 100 1 91 78 68 & 7 &  15 63 69 75    \\ 
+&&& 78 75 69 63 65 & 44 42 8 22 14&&  76 89 98   \\ 
+&&& 40 43 15 9 22 &               & &     \\ \hline  
+\hline
+\end{tabular}
+}
+
+
+\subsection*{Uppgift 4 -- Multationer}
+~\\
+{\tt 
+\begin{tabular}{||l||l|l||l|l|l||}\hline\hline
+& \multicolumn{2}{c||}{\fe{Indata}} & \multicolumn{3}{c||}{\fe{Utdata}} \\ 
+& Start & Mål & Mult 1 & Mult 2 & Mult 3 \\ \hline \hline
+\fe{Test 1}&\texttt{BCBAC}&\texttt{ACACC}      & A -> C & B -> A &             \\ \hline                           
+\fe{Test 2} &\texttt{ABC}&\texttt{CCAACAABC}   & A -> CAA & A -> CAA &         \\ \hline                            
+\fe{Test 3} &\texttt{ACAB}&\texttt{ACABCACACA} & B -> BCA & B -> BCA & B -> BCA\\ \hline 
+\fe{Test 4} &\texttt{CCA}&\texttt{CACACB}      & A -> B & C -> CA & B -> CB    \\ \hline          
+\fe{Test 5} &\texttt{AB}&\texttt{CBBCBABCBA}   & A -> CB & B -> BCA & C -> CB  \\ \hline 
+\hline
+\end{tabular}
+}
+
+
+\subsection*{Uppgift 5 -- Robottävling}
+~\\
+{\tt 
+\begin{tabular}{||l||c|l|l||c|l||}\hline\hline
+& \multicolumn{3}{c||}{\fe{Indata}} & \multicolumn{2}{c||}{\fe{Utdata}} \\ 
+& $N$ & $r_1, r_2, ..., r_N$ & $c_1, c_2, ..., c_N$  &Min & Max \\ \hline \hline
+\fe{Test 1}&3 &   1 4 5 & 3 5 5                               &22$^*$ &27 \\ \hline 
+\fe{Test 2}&10 &  2 3 5 1 5 5 4 4 3 5 & 1 1 2 3 2 2 5 3 3 2   &132$^*$ &214 \\ \hline 
+\fe{Test 3}&3 &   4 5 5 & 3 5 5                               &22 &37 \\ \hline
+\fe{Test 4}&9 &   5 5 3 1 1 5 3 2 3 & 3 3 5 1 2 5 1 4 5       &103 &187 \\ \hline
+\fe{Test 5}&10 &  5 3 5 2 5 5 2 3 3 5 & 5 5 5 4 5 4 4 5 1 3   &137 & 327 \\ \hline
+\hline
+\end{tabular}
+}\\
+$^*$OBS! Min-värdet behöver inte vara korrekt för att ge poäng på test 1 och 2.
+
+
+\subsection*{Uppgift 6 -- Avslutningsceremonin}
+~\\
+{\tt 
+\begin{tabular}{||l||l|l||l|l|l||}\hline\hline
+& \multicolumn{2}{c||}{\fe{Indata}} & \fe{Utdata} \\ 
+& Rad & Maxavstånd & \\ \hline \hline
+\fe{Test 1} & CACBACAABABBCBC               & 1 & 8\\ \hline                           
+\fe{Test 2} & AABAABBAAABBBABABBAAABABBABAAB& 2 & 21\\ \hline                            
+\fe{Test 3} & BABABABABABBAABABABABABABABABA& 2 & 20\\ \hline 
+\fe{Test 4} & AABCDCDDABDBDACDBBDBACADCDBABC& 2 & 14\\ \hline          
+\fe{Test 5} & CBABABABABABABABABABABABABADAD& 2 & 18\\ \hline 
+\hline
+\end{tabular}
+}
+
+\end{document}

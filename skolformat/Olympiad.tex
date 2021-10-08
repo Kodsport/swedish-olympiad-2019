@@ -1,0 +1,97 @@
+\documentclass[a4paper,12pt,oneside]{amsbook}
+\usepackage[T1]{fontenc}
+\usepackage{textcomp}
+\usepackage{multicol}
+%\usepackage{euler}
+%\usepackage{garamond}
+\usepackage{hyperref}
+
+\usepackage{newcent}
+%\fontfamily{fxm}\selectfont
+\usepackage{fancyhdr}
+\pagestyle{fancy}
+% Detta paket skoter grafiken
+\usepackage[dvips]{graphicx}
+%\usepackage[pdftex]{graphicx}
+
+\usepackage{amsthm}
+\usepackage{amsmath}
+\usepackage[swedish]{babel}
+% For bortkommentering
+\usepackage{verbatim}
+% For att slippa indentering av Sections och SubSections
+\usepackage{indentfirst}
+
+% Har stalls paragrafindentering och avstand mellan stycken och rader mm
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{6pt}
+\setlength{\baselineskip}{12pt}
+% Har definieras sidan
+\setlength{\voffset}{-15mm}
+\setlength{\hoffset}{-5.5mm}
+
+\setlength{\topmargin}{0mm}
+\setlength{\headheight}{10mm}
+\setlength{\headsep}{8mm}
+\setlength{\footskip}{16mm}
+
+\setlength{\evensidemargin}{0mm}
+\setlength{\oddsidemargin}{0mm}
+
+\setlength{\marginparsep}{0mm}
+\setlength{\marginparwidth}{0mm}
+
+\setlength{\textwidth}{170mm}
+\setlength{\textheight}{230mm}
+\setlength{\paperwidth}{210mm}
+\setlength{\paperheight}{297mm}
+\setlength{\headwidth}{170mm}
+% Huvud och Fot
+%\fancypagestyle{}{
+\fancyhf{}\fancyhead[c]{\small{\textit{Programmeringsolympiaden Kvalificering 2019}}}
+\fancyfoot[c]{\thepage}
+\renewcommand{\headrulewidth}{0.4pt}
+\renewcommand{\footrulewidth}{0.4pt}
+\newenvironment{lista}
+{\begin{itemize}
+\setlength{\parindent}{0pt}
+\setlength{\itemsep}{6pt}}
+{\end{itemize}}
+% Uppgifter
+\newcounter{probnr}
+\newenvironment{tal}{%
+\begin{list}
+%{\textbf{\arabic{section}.\arabic{probnr}}} {\usecounter{probnr}
+{\textbf{\arabic{probnr}}} {\usecounter{probnr}
+\setlength{\leftmargin}{0mm}
+\setlength{\rightmargin}{0mm}
+\setlength{\labelwidth}{-1mm}
+\setlength{\labelsep}{1mm}}
+\setlength{\itemsep}{6pt}
+}{\end{list}}
+% Definition av avsnitt: FAKTA, EXEMPEL, PASTAENDE
+\newtheorem{fakta}{Fakta}
+\newtheorem{exempel}{Exempel}
+\newtheorem{problem}{Problem}
+%
+\newtheoremstyle{test}% NAME
+{20pt}      % ABOVESPACE
+{10pt}      % BELOWSPACE
+{\sffamily} % BODYFONT
+{0pt}       % INDENT
+{\scshape}  % HEADFONT
+{}          % HEADPUNCT
+{\newline}  % HEADSPACE
+{}          % CUSTOM-HEAD-SPEC
+
+\theoremstyle{test}
+\newtheorem{program}{Program}
+\newcommand{\sv}[1]{\textsc{#1}}            % Sma versaler
+\newcommand{\fe}[1]{\textbf{#1}}            % FET
+\newcommand{\ku}[1]{\textit{#1}}            % KURSIV
+\newcommand{\cu}[1]{\texttt{#1}}            % Courier
+\newcommand{\sk}[1]{\texttt{#1}}            % Courier
+\newcommand{\rubrik}[1]{\begin{center}\sf\huge{#1}\normalsize\rm\end{center}}
+\begin{document}
+%\DeclareGraphicsExtensions{.jpg,.pdf,.mps,.png,.eps}
+
