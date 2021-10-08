@@ -1,0 +1,364 @@
+\input{Olympiad}
+\thispagestyle{fancy}
+% ----------------------------------------------------
+
+\begin{center}
+\Huge{Programmeringsolympiaden 2019}
+\end{center}
+\vspace{-1cm} 
+\specialsection*{Tävlingsregler för skolkvalet}
+\begin{lista}
+\item Tävlingen äger rum på av skolan bestämt datum under {\bf fyra
+    timmar. Ingen förlängning ges för lunch eller raster.} Eleven ska i förväg komma överens med läraren om att använda egen dator eller en som skolan tillhandahåller. I vilket fall som helst måste eleven befinna sig i avtalad lokal på skolan.
+\item Tävlingen består av sex uppgifter som vardera ska lösas genom ett
+  datorprogram i valfritt programmeringsspråk.
+\item {\bf Indata kan läsas in i programmet på valfritt sätt}, t.ex. genom att programmet för en dialog med användaren (som i körningsexemplena i uppgifterna), att de skrivs in i ett grafiskt gränssnitt eller att datafiler skickas till {\em standard input}. Kom bara överens med din lärare om hur programmet ska testas.
+\item Dina lösningar kommer att testköras med förpreparerade
+  indata. Varje uppgift testas normalt med 5 testfall, som vardera ger
+  1 poäng om ditt program skriver ut korrekt svar inom en exekveringstidsgräns av
+  {\bf 3 sekunder}.
+\item Det är ofta olika begränsningar på de olika testfallen, t.ex.\ storleken på
+indata eller andra inskränkningar. Detta anges i uppgiften. {\bf Observera att det kan vara
+helt olika svårighetsgrad på en uppgift beroende på dessa skillnader. Det kan därför vara
+lättare att få delpoäng på en uppgift som verkar svår än att få full
+poäng på en uppgift som verkar lättare.} Informationen om delpoäng är
+därför extremt viktig för att planera sin
+tävling.
+\item Ingen test av indata behöver göras, den följer specifikationerna 
+i uppgiften.
+\item Rättningen utförs på samma eller likvärdig dator. Ändringar
+  i källkoden tillåts ej efter tävlingen. Om programmet
+  inte kan kompileras ges 0 p.\ på uppgiften. 
+\item Om något av följande inträffar ger
+  det {\em testfallet} 0 poäng, men programmet fortsätter testas med övriga testfall.
+\begin{lista}
+\item Exekveringstiden överstiger 3 sekunder \vspace{-0.2cm}
+\item Exekveringsfel (run time error) \vspace{-0.2cm}
+\item Fel svar \vspace{-0.2cm}
+\end{lista}
+
+\item Deltagandet är individuellt vilket bland annat innebär att inget utbyte av idéer eller 
+filer får ske under tävlingen.  
+\item Hjälpmedel: Valfritt skriftligt material, material som finns installerat på datorn samt material som finns tillgängligt på internet. Det är \ku{inte} tillåtet att aktivt kommunicera på internet (t.ex. chatta eller ställa frågor till ett forum) utan endast att söka efter information. Räknedosa är tillåten.
+\item Tävlingsbidraget ska lämnas in i form av källkodsfiler som läggs på utdelat 
+minne eller i en av läraren angiven hårddiskkatalog. Filerna ska döpas till 
+uppg1...uppg6 med passande filtillägg. Ingen hänsyn tas till andra filer. Var noga 
+med att lämna in den korrekta versionen av ditt program.  
+\end{lista}
+
+%De högst placerade i kvalet går vidare till finalen där landslagsplatser till BOI i Sverige och IOI i Japan står på spel.
+\begin{center}
+\Large Lycka till!
+\end{center}
+%\end{document}
+
+\newpage
+
+
+
+\specialsection*{Uppgift 1 -- Kuber}
+
+Nadja klistrar ihop små kuber med sidlängd 1 till större kompakta kuber. Hur många småkuber går det åt om hon vill ha en kub av varje sort med sidlängd från 1 till $N$? Figuren nedan visar de fyra kuberna i det första exemplet ($N=4$). Tillsammans innehåller de $1+8+27+64=100$ småkuber.
+
+\begin{figure}[!h]
+  \centering
+      \includegraphics[width=0.6\textwidth]{kuber1.eps}
+\end{figure}
+
+
+Programmet ska fråga efter talet $N$, där $2\le N \le 40$, och skriva ut antalet småkuber som går åt.
+
+\fe{Körningsexempel 1}
+
+\begin{verbatim}
+Talet N ? 4
+Antal: 100
+\end{verbatim}
+
+\vspace{0.2cm}
+
+\fe{Körningsexempel 2} 
+
+\begin{verbatim}
+Talet N ? 7
+Antal: 784
+\end{verbatim}
+
+\newpage
+\specialsection*{Uppgift 2 -- Studschiffer}
+
+Fretchif har hittat på ett revolutionärt chiffer som ingen kommer kunna lösa! Så här går det till: Man väljer två heltal $N$ och $M$ och ritar upp ett rutnät med $N$ rader och $M$ kolumner. Därefter börjar man skriva in strängen man krypterar, en bokstav i taget, snett nedåt från det översta vänstra hörnet (se figuren). När man kommer till en av rutnätets väggar, så låter man ''bokstavsstrålen'' studsa mot väggen (se figuren). Ifall man vid något tillfälle hamnar på en ruta som det redan står en bokstav i, så sparar man den bokstav man tänkte skriva, och skriver den i nästa lediga ruta man kommer till istället. När alla bokstäver i strängen som krypteras är slut så läser man av rutnätet rad för rad, och det blir det krypterade meddelandet.
+
+Givet ett krypterat meddelande och storleken på rutnätet som användes vid krypteringen, skriv ut orginalmeddelandet.
+
+Notera att vissa meddelanden inte går att kryptera med vissa storlekar på rutnät, då det är möjligt att man aldrig kommer till någon ny ledig ruta men fortfarande har bokstäver kvar att placera ut. I givna testfall är det dock garanterat att detta inte hände.
+
+Ett exempel: Säg att strängen vi ska kryptera är \texttt{ABCDEFGHIKLMNOPQRST}, och att rutnätet har storlek $6 \times 13$.
+Figuren visar hur rutnätet ser ut vid olika tidpunkter under krypteringen. Det krypterade meddelandet blir \texttt{ATKBSJLCRIMDHNEGQOFP}. 
+
+%\hspace{25cm}
+\begin{figure}[!h]
+  \centering
+      \includegraphics[width=1\textwidth]{grids.eps}
+\end{figure}
+
+Programmet ska fråga efter antalet rader $N$ och kolumner $M$ i rutnätet ($2 \leq N \leq 20$ och $2 \leq M \leq 20$). Därefter ska programmet fråga efter det krypterade meddelandet, en sträng med högst 30 bokstäver, valda bland \texttt{A} till \texttt{Z} (endast stora bokstäver). Det är garanterat att det finns en möjlig ursprungssträng som ger denna chiffertext. Programmet ska skriva ut denna ursprungssträng.
+
+\fe{Poängsättning:}\\
+För testfall värda $1$ poäng gäller att $N=2$ och att bokstavsstrålen aldrig når högra väggen\\
+För testfall värda ytterligare $2$ poäng gäller att bokstavsstrålen aldrig når högra väggen\\
+
+
+\fe{Körningsexempel 1}
+\begin{verbatim}
+Antal rader ? 2
+Antal kolumner ? 20
+Krypterad text ? PORMEIGRGAMRN
+
+Meddelande: PROGRAMMERING
+\end{verbatim}
+
+\fe{Körningsexempel 2} (samma som figuren ovan)
+\begin{verbatim}
+Antal rader ? 6
+Antal kolumner ? 13
+Krypterad text ? ATKBSJLCRIMDHNEGQOFP
+
+Meddelande: ABCDEFGHIJKLMNOPQRST
+\end{verbatim}
+
+
+\fe{Körningsexempel 3}
+\begin{verbatim}
+Antal rader ? 5
+Antal kolumner ? 7
+Krypterad text ? SLUIMPEGEHTR
+
+Meddelande: SUPERHEMLIGT
+\end{verbatim}
+
+\fe{Körningsexempel 4}
+\begin{verbatim}
+Antal rader ? 15
+Antal kolumner ? 19
+Krypterad text ? DALIGREKTANGEL
+
+Meddelande: DALIGREKTANGEL
+\end{verbatim}
+
+
+\newpage
+\specialsection*{Uppgift 3 -- Renoveringen}
+
+Johanna håller på att renovera hemma i sin lägenhet. Hon lämnar inget åt slumpen utan har planerat exakt hur många spikar hon behöver under renoveringen.\\
+Totalt sett behöver hon $N$ spikar med längderna $x_1, x_2, \dots, x_N$.\\
+I sin spiklåda har hon $M$ spikar med längderna $y_1, y_2, \dots, y_M$.
+
+Om Johanna behöver en spik med längd $x_i$ kan hon använda en spik med längd $y_j$ om $x_i \le y_j$ eftersom hon kan kapa av den längre spiken tills den är precis så lång som behövs.
+Däremot kan hon inte kombinera två korta spikar till en längre spik, eller kapa en spik flera gånger (den har ju bara ett spikhuvud).
+
+Skriv ett program som beräknar hur många spikar Johanna behöver köpa, och vilka längder dessa spikar ska ha. Hon vill köpa så få spikar som möjligt. Om det finns flera sätt att köpa minimalt antal spikar, så vill hon köpa spikar av så kort total längd som möjligt.
+
+Programmet ska fråga efter $N$ och $M$, antalet spikar Johanna behöver och antalet spikar hon har ($1 \le N \le 15$ och $1 \le M \le 15$). Därefter ska programmet läsa in de $N$ längderna på de spikar Johanna behöver, och slutligen de $M$ längderna på de spikar hon har. Samtliga längder är heltal mellan $1$ och $100$.
+
+Programmet ska först skriva ut det minsta antalet spikar Johanna behöver köpa.
+På nästa rad ska programmet skriva ut längderna på spikarna Johanna ska köpa, i stigande ordning.
+
+\fe{Poängsättning:} För testfall värda $2$ poäng gäller att Johanna behöver använda alla spikar hon redan har, och hon behöver inte kapa någon av dessa.
+
+\begin{multicols}{2}
+
+\fe{Körningsexempel 1}
+\begin{verbatim}
+Behöver antal? 6
+Har antal? 3
+Behöver längd ? 64 
+Behöver längd ? 13
+Behöver längd ? 45
+Behöver längd ? 28
+Behöver längd ? 82
+Behöver längd ? 77
+Har längd ? 45 
+Har längd ? 82
+Har längd ? 64
+
+Antal: 3
+Längder: 13 28 77 
+\end{verbatim}
+
+\fe{Förklaring: }Johanna behöver bara fylla på med tre extra spikar av längderna $13$, $28$ och $77$.
+\vfill\columnbreak
+
+
+\fe{Körningsexempel 2}
+\begin{verbatim}
+Behöver antal? 3
+Har antal? 2
+Behöver längd ? 11 
+Behöver längd ? 50
+Behöver längd ? 45
+Har längd ? 45 
+Har längd ? 100
+
+Antal: 1
+Längder: 11
+\end{verbatim}
+
+\fe{Förklaring: }Johanna behöver köpa en spik av längd $11$, och dessutom kapa en spik av längd $100$ till $50$.
+Hon hade kunnat köpa en spik av längd $50$ och kapa spiken av längd $100$ till längd $11$, men då hade hon behövt köpa spikar av längre total längd.
+\end{multicols}
+
+
+\newpage
+\specialsection*{Uppgift 4 -- Multationer}
+
+På den ännu oupptäckta exoplaneten PO-2019 består invånarnas arvsmassa av en sträng, där varje bokstav är antingen A, B eller C. Livets utveckling har gått lite snabbare där än på  jorden (exempelvis kan alla lösa programmeringsproblem redan som nyfödda). Anledningen tros vara att istället för vanliga mutationer sker ``multationer'', som ändrar {\em alla} förekomster av en viss bokstav samtidigt. Bokstaven byts ut mot en sträng som kan innehålla 1, 2 eller 3 bokstäver (se figuren nedan). Detta gör att längden på arvsmassan kan öka ganska snabbt.
+
+Skriv ett program som läser in två strängar $S$ och $T$ och skriver ut den kortaste sekvensen av multationer som ändrar $S$ till $T$. Ingen av strängarna innehåller mer än $10$ bokstäver och varje bokstav är antingen \texttt{A}, \texttt{B} eller \texttt{C}.
+
+Programmet ska skriva ut en rad för varje multation, i den ordningen de sker. Varje rad ska innehålla bokstaven som ändras och strängen som den ändras till. Det kommer alltid att finnas en lösning med högst $3$ multationer. Om det finns flera optimala sekvenser kan du ange vilken som helst av dem.
+
+\fe{Poängsättning:}
+För testfall värda $1$ poäng gäller att $S$ och $T$ är lika långa. \\
+I testfall värda $2$ poäng finns en optimal sekvens där alla multationer är samma.
+
+\begin{multicols}{2}
+\fe{Körningsexempel 1}
+
+\begin{verbatim}
+Start ? ABA
+Mål   ? CBC
+
+Multation 1:  A -> C
+\end{verbatim}
+
+\fe{Körningsexempel 2}
+
+\begin{verbatim}
+Start ? BC
+Mål   ? CACCAB
+
+Multation 1:  B -> A
+Multation 2:  C -> CAB
+Multation 3:  A -> CA
+\end{verbatim}
+\vfill\columnbreak
+
+\fe{Körningsexempel 3}
+\begin{verbatim}
+Start ? CAC
+Mål   ? CABCACAB
+
+Multation 1:  C -> AB
+Multation 2:  A -> CA
+\end{verbatim}
+
+\fe{Körningsexempel 4}
+\begin{verbatim}
+Start ? AABAC
+Mål   ? AABBBBAC
+
+Multation 1:  B -> BB
+Multation 2:  B -> BB
+\end{verbatim}
+\end{multicols}
+
+\begin{figure}[!h]
+  \centering
+      \includegraphics[width=0.75\textwidth]{multationer1.eps}
+\end{figure}
+
+\newpage
+\specialsection*{Uppgift 5 -- Robottävling}
+
+Du har byggt en robot till en robottävling. En av uppgifterna som roboten ska lösa går ut på att räkna antalet kuber i ett kvadratiskt rutnät. Rutnätet har $N$ rader och $N$ kolumner, och i varje ruta finns en stapel med $1$ till $5$ identiska kuber. Tyvärr är din robot inte särskilt bra på att samla information. Det enda den kan göra är att hitta höjden på den högsta stapeln i varje rad och kolumn. Du tänker kompensera för detta genom att göra roboten väldigt smart. Skriv ett program som, givet informationen roboten samlade in, räknar ut det minsta möjliga och det största möjliga totala antalet kuber i rutnätet.
+
+Programmet ska fråga efter rutnätets storlek $N$. Därefter ska det läsa in $N$ heltal $r_i$ $(1 \leq r_i \leq 5)$, höjden av högsta stapeln i rad $i$, och därefter ytterligare $N$ heltal $c_i$ $(1 \leq c_i \leq 5)$, höjden av högsta stapeln i kolumn $i$. Det är garanterat att det inte finns några motsägelser i indatan, det vill säga det kommer alltid att finnas minst en giltig utplacering av kuber som ger de givna värdena.
+
+\fe{Poängsättning}\\
+För testfall värda $1$ poäng är $N=3$  och det räcker att få rätt på största antalet kuber. \\
+För testfall värda $1$ poäng är $5\le N\le 10$, det räcker att få rätt på största antalet kuber.\\
+För testfall värda $1$ poäng är $N=3$.  \\
+För testfall värda $2$ poäng är $5 \le N \le 10.$ \\
+
+\begin{multicols}{2}
+\fe{Körningsexempel 1}
+\begin{verbatim}
+Storlek ? 3
+Rad 1, högsta stapeln ? 2
+Rad 2, högsta stapeln ? 3
+Rad 3, högsta stapeln ? 1
+Kolumn 1, högsta stapeln ? 3
+Kolumn 2, högsta stapeln ? 1 
+Kolumn 3, högsta stapeln ? 3
+
+Min: 14
+Max: 15
+\end{verbatim}
+
+\fe{Förklaring: } Figuren nedan visar de\\ enda möjliga konfigurationerna. Båda \\de två första har totalt 14 kuber och den tredje har totalt 15 kuber.
+
+\includegraphics[width=.5\textwidth]{robotbild.eps}\\
+\vfill\columnbreak
+\fe{Körningsexempel 2}
+\begin{verbatim}
+Storlek ? 4
+Rad 1, högsta stapeln ? 5
+Rad 2, högsta stapeln ? 5
+Rad 3, högsta stapeln ? 5
+Rad 4, högsta stapeln ? 5
+Kolumn 1, högsta stapeln ? 5
+Kolumn 2, högsta stapeln ? 5
+Kolumn 3, högsta stapeln ? 5
+Kolumn 4, högsta stapeln ? 5
+
+Min: 32
+Max: 80
+\end{verbatim}
+
+\end{multicols}
+
+
+\newpage
+\specialsection*{Uppgift 6 -- Avslutningsceremonin}
+
+
+Några olika sällskap är inbjudna att sitta på första raden under avslutningsceremonin för årets upplaga av IOI (International Olympiad in Informatics). Varje person har blivit tilldelad en plats. Då organisatörerna av IOI inte insåg att sällskapen gärna sitter tillsammans har de delat ut platserna lite huller om buller. Personerna tänker därför ta situationen i egna händer: Genom att byta platser med varandra försöker de maximera antalet par av personer från samma sällskap som sitter bredvid varandra. Organisatörerna blir arga ifall platsbytandet blir för stökigt, och bestämmer därför att varje person får byta plats högst en gång, och då med en person som sitter högst $K$ platser bort.
+
+Skriv ett program som beräknar det största antalet par av personer från samma sällskap sittande bredvid varandra som går att uppnå med giltiga platsbyten.
+
+Programmet ska läsa in en sträng, med längd $1 \leq N \leq 30$, som beskriver den ursprungliga raden. Varje bokstav i strängen beskriver vilket sällskap personen på motsvarande plats tillhör, och är antingen \texttt{A}, \texttt{B}, \texttt{C} eller \texttt{D}. Därefter ska programmet fråga efter maxavståndet $K$ som personerna får flytta ($1 \leq K \leq 2$). 
+
+\begin{figure}[!h]
+  \centering
+      \includegraphics[width=0.5\textwidth]{avslut.eps}
+      \caption{Lösningen till det andra körningsexemplet. Pilarna visar hur personerna ska byta plats. De svarta kvadraterna markerar par av personer ur samma sällskap som sitter bredvid varandra efter flyttningen.}
+\end{figure}
+
+\fe{Poängsättning:}\\
+För testfall värda $1$ poäng gäller att $K=1$ och $N \leq 15$ och det finns 3 sällskap (A,B,C).\\
+För testfall värda $2$ poäng gäller att $K=2$ och det finns 2 sällskap (A,B).\\
+För testfall värda $2$ poäng gäller att $K=2$ och det finns 4 sällskap (A,B,C,D).\\
+
+\begin{multicols}{2}
+\fe{Körningsexempel 1}
+\begin{verbatim}
+Rad ? BAABAA
+Maxavstånd ? 1
+
+Max antal par: 3
+\end{verbatim}
+\fe{Förklaring: } Placeringen \texttt{ABBAAA} kan uppnås genom att byta plats på den första och den andra personen, och byta plats på den tredje och den fjärde personen. 
+\vfill\columnbreak
+\fe{Körningsexempel 2}
+\begin{verbatim}
+Rad ? ACABBCBA
+Maxavstånd ? 2
+
+Max antal par: 4
+\end{verbatim}
+\fe{Förklaring: }Se figuren ovan.
+\end{multicols}
+
+
+\end{document}
