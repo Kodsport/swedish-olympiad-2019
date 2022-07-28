@@ -1,4 +1,4 @@
-#!/usr/bin/env pypy3
+#!/usr/bin/env python3
 import sys
 
 sys.setrecursionlimit(10000)
