@@ -31,4 +31,4 @@ ans.sort()
 output = ""
 for node in ans:
     output += str(node+1)+" "
-print output
+print(output)

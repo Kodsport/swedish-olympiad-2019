@@ -97,6 +97,7 @@ limits nMax=$MAXN mMax=$MAXN
 include_group group2
 include_group group4
 include_group group5
+include_group sample
 tc large1 gen_random n=$MAXN m=$MAXN k=$MAXN
 tc large2 gen_random n=$MAXN m=$MAXN k=100000
 tc large3 gen_random n=$MAXN m=$MAXN k=1000 mode=valid

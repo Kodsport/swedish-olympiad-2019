@@ -18,6 +18,7 @@ limits nMax=$MAXN xMax=$MAXX
 sample 1
 sample 2
 sample 3
+sample 4
 
 group group1 10
 limits nMax=3 xMax=$MAXX
@@ -58,6 +59,7 @@ tc medium11 gen_cluster n=199 isolated=100
 group group4 50
 limits nMax=$MAXN xMax=$MAXX
 include_group group3
+include_group sample
 tc large1 gen_random n=400
 tc large2 gen_random n=800
 tc large3 gen_random n=1600

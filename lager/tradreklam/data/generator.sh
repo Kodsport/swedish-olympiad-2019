@@ -100,6 +100,7 @@ limits n=$N b=$B
 include_group group2
 include_group group3
 include_group group5
+include_group sample
 tc c1-11
 tc large-1 gen_random n=$N b=$B mode=random
 tc large-2 gen_random n=$N b=$B mode=random exact=1

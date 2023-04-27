@@ -34,6 +34,7 @@ group group2 58
 limits easyWin=0
 
 include_group group1
+include_group sample
 
 tc hard-1 gen_random easyWin=0 probA=0.5
 tc hard-2 gen_random easyWin=0 probA=0.5

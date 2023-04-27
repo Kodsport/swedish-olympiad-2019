@@ -14,6 +14,7 @@ sample 1
 sample 2
 
 group group1 40
+tc 2
 tc g1-1 gen_random ans=E
 tc g1-2 gen_random ans=C
 tc g1-3 gen_random ans=A
@@ -26,6 +27,7 @@ tc g1-9 gen_random ans=A
 
 group group2 60
 include_group group1
+tc 1
 tc g2-1 gen_random ans=D
 tc g2-2 gen_random ans=B
 tc g2-3 gen_random ans=D

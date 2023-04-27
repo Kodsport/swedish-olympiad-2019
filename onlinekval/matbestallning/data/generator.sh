@@ -109,6 +109,7 @@ include_group group1
 include_group group2
 include_group group3
 include_group group4
+include_group sample
 tc large1 gen_random n=2 m=2
 tc large2 gen_random n=$MAXN m=$MAXN
 tc large3 gen_random n=$MAXN m=$MAXN k=10

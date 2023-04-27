@@ -120,6 +120,7 @@ int main(int argc, char** argv) {
 		ll sc = score(cin, grid, K, die);
 		ll bestsc = score(fans, grid, K, judge_error);
 		double ratio = (double)sc / (double)bestsc;
+                ratio = min(1.0, ratio*ratio);
 		if (T == 0) accept(0);
 		else accept(10.0 * ratio * ratio);
     } catch(...) {

@@ -17,12 +17,14 @@ RANGE=$G2MIN,$G2MAX
 
 samplegroup
 limits max=$G2MAX
-# sample 1
-# sample 2
-# sample 3
+sample 1
+sample 2
+sample 3
 
 group group1 30
 limits max=$G1MAX
+tc 1
+tc 2
 tc_manual ../manual_tests/small1.in
 tc_manual ../manual_tests/small2.in
 tc_manual ../manual_tests/small3.in
@@ -129,6 +131,7 @@ tc max_sn0 gen n=$G2MAX m=$G2MAX xmode=same ymode=next
 
 group group3 15
 limits max=$G2MAX nosame=1
+tc 1
 tc small1
 tc small3
 tc small4
@@ -215,6 +218,7 @@ limits max=$G2MAX
 include_group group1
 include_group group2
 include_group group3
+tc 3
 tc_manual ../manual_tests/randkill1.in
 tc_manual ../manual_tests/randkill2.in
 tc_manual ../manual_tests/randkill3.in

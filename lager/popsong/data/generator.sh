@@ -126,6 +126,7 @@ group group3 40
 N=15000
 limits n=$N
 include_group group2
+include_group sample
 tc g4-rand-1 gen_random n=$N
 tc g4-rand-2 gen_random n=$N
 tc g4-rand-3 gen_random n=$((N - 1000))

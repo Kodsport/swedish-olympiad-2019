@@ -1,5 +1,6 @@
 #!/usr/bin/env bash
 
+REQUIRE_SAMPLE_REUSE=0
 PPATH=$(realpath ..)
 . ../../../testdata_tools/gen.sh
 
@@ -14,7 +15,7 @@ compile gen_blocks.py
 
 samplegroup
 limits t=0
-# sample 1
+sample 1
 
 testcase() {
 	NAME=$(printf "%02d" $1)

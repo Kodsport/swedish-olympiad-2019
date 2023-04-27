@@ -93,6 +93,7 @@ include_group group2
 include_group group3
 include_group group4
 include_group group5
+include_group sample
 
 tc full-rand-1 gen_random r=100 c=100 k=4 seed=1 fireRatio=0.4
 tc full-rand-2 gen_random r=100 c=100 k=15 seed=1 fireRatio=0.5

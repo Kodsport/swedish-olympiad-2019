@@ -1,4 +1,4 @@
-range: 0 100
 on_reject: continue
-grader_flags: always_accept
+range: 0 100
+grader_flags: ignore_sample
 grading: custom

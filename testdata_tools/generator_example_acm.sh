@@ -1,6 +1,8 @@
-#!/bin/bash
-PPATH=$(realpath ..)
-. ../../testdata_tools/gen-acm.sh
+#!/usr/bin/env bash
+USE_SCORING=0
+. ../../testdata_tools/gen.sh
+
+# Example test data generator for non-scoring problems.
 
 # For unlimited stack:
 # ulimit -s unlimited

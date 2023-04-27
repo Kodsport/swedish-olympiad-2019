@@ -43,6 +43,7 @@ done
 group group4 12
 limits nq=1e6 aexp=30
 include_group group3
+include_group sample
 for A in {82..97}; do
 	tc_manual ../manual-tests/$A
 done

@@ -17,6 +17,9 @@ sample 3
 
 group group1 13
 limits n=15 m=60
+tc 1
+tc 2
+tc 3
 tc small-imp gen_random n=15 m=50 mode=impossible
 tc small-rand1 gen_random n=5 m=10 mode=possible
 tc small-rand2 gen_random n=10 m=30 mode=possible

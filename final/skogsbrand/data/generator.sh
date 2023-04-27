@@ -49,6 +49,8 @@ tc smallbfs10 gen_line n=$MAXN m=0 T=100 maxx=99 dx=1 dy=1
 group group3 10
 limits nMax=$MAXN mMax=$MAXM TMax=400 xMax=99
 include_group group2
+tc 1
+tc 3
 tc bigbfs1 gen_random n=$MAXN m=$MAXM T=400 maxx=99
 tc bigbfs2 gen_random n=$MAXN m=$MAXM T=400 maxx=99
 tc bigbfs3 gen_random n=$MAXN m=$MAXM T=400 maxx=99
@@ -76,6 +78,8 @@ group group5 21
 limits nMax=$MAXN mMax=$MAXM TMax=$MAXT xMax=99
 include_group group3
 include_group group4
+tc 2
+tc 4
 tc smallx1 gen_random n=$MAXN m=3 T=$MAXT maxx=30
 tc smallx2 gen_random n=$MAXN m=33 T=$MAXT maxx=22
 tc smallx3 gen_random n=$MAXN m=$MAXM T=$MAXT maxx=22

@@ -26,6 +26,7 @@ sample 4
 group group1 15
 limits nMax=4 mMax=4 kMax=4 days=7 piMax=$PIMAX
 #tc name input_generator inputs_to_generator
+tc 4
 tc small0rand gen_random_or_roughlyLinearPrices N=4 M=2 K=3 piMax=$PIMAX days=7 mode=random
 tc small1rand gen_random_or_roughlyLinearPrices N=4 M=4 K=3 piMax=$PIMAX days=7 mode=random
 tc small2rand gen_random_or_roughlyLinearPrices N=4 M=4 K=4 piMax=$PIMAX days=7 mode=random
@@ -49,6 +50,10 @@ group group2 9
 limits nMax=300 mMax=$MAXM kMax=300 piMax=$PIMAX days=1000
 #tc name input_generator inputs_to_generator
 include_group group1
+tc 1
+tc 2
+tc 3
+tc 4
 tc med0randsmalldi gen_random_or_roughlyLinearPrices N=300 M=$MAXM K=210 piMax=$PIMAX days=1000 mode=random
 tc med1randsmalldi gen_random_or_roughlyLinearPrices N=290 M=$MAXM K=200 piMax=$PIMAX days=1000 mode=random
 tc med2randsmalldi gen_random_or_roughlyLinearPrices N=280 M=$MAXM K=210 piMax=$PIMAX days=1000 mode=random
@@ -92,6 +97,7 @@ tc med7semirand gen_random_or_roughlyLinearPrices N=300 M=$MAXM K=100 piMax=$PIM
 group group4 28
 limits nMax=$MAXN mMax=$MAXM kMax=0 piMax=$PIMAX days=$DAYS
 #tc name input_generator inputs_to_generator
+tc 4
 tc med0randk0 gen_random_or_roughlyLinearPrices N=10000 M=$MAXM K=0 piMax=$PIMAX days=$DAYS mode=random
 tc med1randk0 gen_random_or_roughlyLinearPrices N=13000 M=$MAXM K=0 piMax=$PIMAX days=$DAYS mode=random
 tc med2randk0 gen_random_or_roughlyLinearPrices N=14000 M=$MAXM K=0 piMax=$PIMAX days=$DAYS mode=random

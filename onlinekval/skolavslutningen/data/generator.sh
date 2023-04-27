@@ -39,7 +39,7 @@ tc k2-8 gen k=2 n=$MAXN m=50
 group group3 35
 limits nMax=50 mMax=50
 tc nm50-1 gen k=1 n=1 m=1
-tc nm50-2 gen k=10 n=1 m=15
+tc nm50-2 gen k=3 n=1 m=15
 tc nm50-3 gen k=1 n=25 m=15
 tc nm50-4 gen k=26 n=50 m=50
 tc nm50-5 gen k=20 n=25 m=15
@@ -49,6 +49,10 @@ tc nm50-8 gen k=15 n=40 m=17
 
 group group4 35
 limits nMax=$MAXN mMax=$MAXN
+include_group group1
+include_group group2
+include_group group3
+include_group sample
 tc full-1 gen k=4 n=$((MAXN * 56 / 100)) m=$((MAXN * 20 / 100))
 tc full-2 gen k=26 n=$MAXN m=$MAXN
 tc full-3 gen k=20 n=$((MAXN * 45 / 100)) m=$((MAXN * 22 / 100))

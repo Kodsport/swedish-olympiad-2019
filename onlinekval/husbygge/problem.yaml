@@ -7,4 +7,4 @@ validation: custom score
 grading:
     show_test_data_groups: yes
 limits:
-    time_multiplier: 3
+    time_multiplier: 50

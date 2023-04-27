@@ -19,16 +19,16 @@ def valid(pts,n,m):
         return False #platt
     return True
 
-n,m=map(int,raw_input().split())
-x1,y1,x2,y2=map(int,raw_input().split())
+n,m=map(int,input().split())
+x1,y1,x2,y2=map(int,input().split())
 for dx in range(-10,11):
     for dy in range(-10,11):
         x3,y3=x1+dx,y1+dy
         if valid(((x1,y1),(x2,y2),(x3,y3)),n,m):
-            print x3,y3
+            print(x3,y3)
             exit(0)
         x3,y3=x2+dx,y2+dy
         if valid(((x1,y1),(x2,y2),(x3,y3)),n,m):
-            print x3,y3
+            print(x3,y3)
             exit(0)
-print "no point found"
+print("no point found")

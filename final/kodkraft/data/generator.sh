@@ -19,6 +19,9 @@ sample 3
 
 group group1 15
 limits nMax=100 kMax=100
+tc 1
+tc 2
+tc 3
 tc n100_1 gen_random n=100 k=25
 tc n100_2 gen_random n=100 k=50
 tc n100_3 gen_random n=100 k=75
@@ -43,6 +46,7 @@ tc n1000_sortReverse_8 gen_random n=1000 sort=-1
 
 group group3 25
 limits nMax=$MAXN kMax=$MAXN kEqualsN
+tc 1
 tc kEqualsN_1 gen_random n=$MAXN k=$MAXN
 tc kEqualsN_2 gen_random n=$MAXN k=$MAXN
 tc kEqualsN_3 gen_random n=$MAXN k=$MAXN

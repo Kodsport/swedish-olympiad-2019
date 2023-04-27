@@ -1,0 +1,50 @@
+INF = 10**20
+N,M,K = map(int,input().split())
+d = list(map(int,input().split()))
+g = list(map(int,input().split()))
+p = list(map(int,input().split()))
+r = list(map(int,input().split()))
+
+#next_trip[day] = index of the next trip in d.
+next_trip = [-1]
+index = 0
+for i in range(1,d[-1]+1):
+    next_trip.append(index)
+    if i == d[index]: index += 1
+assert index == N, 'next_trip is weird'
+
+prev_discount = []
+current_discount_index = 0
+discount_day = -1
+current_trip = 0
+for day in range(1,d[-1]+1):
+    if current_discount_index < K and r[current_discount_index]==day:
+        discount_day = day
+        current_discount_index += 1
+    if d[current_trip] == day:
+        prev_discount.append(discount_day)
+        current_trip += 1
+assert len(prev_discount) == N, 'prev_discount is weird'
+
+include_discounts = True
+minimal_cost = [INF]*N
+for trip in range(N-1,-1,-1):
+    min_cost = INF
+    for validity_time,price in zip(g,p):
+        if d[trip] + validity_time > d[-1]: 
+            min_cost = min(min_cost,price)
+        else:
+            min_cost = min(min_cost,price+minimal_cost[
+                next_trip[d[trip]+validity_time]])
+    if include_discounts and prev_discount[trip] != -1:
+        discount_day = prev_discount[trip]
+        for validity_time,price in zip(g,p):
+            if discount_day + validity_time <= d[trip]: continue
+            if discount_day + validity_time > d[-1]: 
+                min_cost = min(min_cost,price/2)
+            else:
+                min_cost = min(min_cost,price/2+minimal_cost[
+                    next_trip[discount_day+validity_time]])
+    minimal_cost[trip] = min_cost
+    
+print(minimal_cost[0])

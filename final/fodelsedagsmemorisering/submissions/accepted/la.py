@@ -1,7 +1,7 @@
-N = input()
+N = int(input())
 friends = {}
 for _ in range(N):
-    name, prio, day = raw_input().split()
+    name, prio, day = input().split()
     prio = int(prio)
     if day in friends:
         if prio > friends[day][1]:
@@ -10,5 +10,5 @@ for _ in range(N):
         friends[day] = (name,prio)
 out = [friends[d][0] for d in friends]
 out.sort()
-print len(out)
-print '\n'.join(out)
+print(len(out))
+print('\n'.join(out))

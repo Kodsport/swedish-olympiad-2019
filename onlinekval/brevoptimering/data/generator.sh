@@ -62,6 +62,7 @@ include_group group1
 include_group group2
 include_group group3
 include_group group4
+include_group sample
 tc full1 gen_random mode=standard n=$MAXN m=$MAXN
 tc full2 gen_random mode=standard n=$((MAXN - 1)) m=$MAXN
 tc full3 gen_random mode=standard n=$((MAXN / 3)) m=$MAXN
