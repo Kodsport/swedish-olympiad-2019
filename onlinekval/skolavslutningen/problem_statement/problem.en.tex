@@ -1,0 +1,59 @@
+\problemname{Graduation}
+\noindent
+The school administration has encountered a problem with the upcoming graduation, a problem they hope
+you can help them solve. During the graduation, students will be lined up in $N$ rows, with $M$ students in each row.
+The administration wants the graduation to be as colorful as possible and will therefore distribute hats in
+different colors to the students.
+
+To make the lineup look nice, it is important that all students in the same column have the same hat color.
+To ensure that nobody feels left out, it is also important that all students in the same class have the same
+hat color. The row and column for each student are already determined, but not the hat color. The administration
+needs your help in assigning hat colors to the students to make the graduation as colorful as possible.
+
+Please help the school administration to calculate the maximum number of unique hat colors that can be assigned to the students
+given how the students will be lined up at the graduation.
+
+\section*{Input}
+The first line of the input contains three integers $N, M$ and $K$ ($1 \leq N,M \leq 700$, $1 \leq K \leq 26$),
+the number of rows, the number of columns and the number of classes.
+
+The following $N$ lines each contain a string consisting of $M$ characters, which describes how the students
+will be positioned during the graduation. Each character will be an uppercase letter between \texttt{A} and the $K$:th
+letter in the alphabet. Each character the class that the student at that particular position belongs to. There is at
+least one student belonging to each class.
+
+\section*{Output}
+Print an integer: the largest number of distinct colors of hats that the school administration can use, while
+ensuring that each column has the same hat color, and that all students from the same class get the same hat color.
+
+\section*{Points}
+Your solution will be tested on several test case groups.
+To get the points for a group, it must pass all the test cases in the group.
+
+\noindent
+\begin{tabular}{| l | l | p{12cm} |}
+  \hline
+  \textbf{Group} & \textbf{Point value} & \textbf{Constraints} \\ \hline
+  $1$    & $15$    & $N, M \leq 5 $ \\ \hline
+  $2$    & $15$    & $K = 2$ \\ \hline
+  $3$    & $35$    & $N, M \leq 50 $ \\ \hline
+  $4$    & $35$    & No further constraints. \\ \hline
+\end{tabular}
+
+%\section*{Samples}
+
+\section*{Explanation of samples}
+In the first example, one student from class \texttt{A} and one from class \texttt{B} are in the second column.
+Since both of these students must have the same color on their hats, the entirety of class \texttt{A}
+must have the same color as class \texttt{B}. Thus, it follows that all students at the
+graduation must have the same color, which makes the answer $1$.
+
+In the second example, class \texttt{A} and class \texttt{B} must have the same color, as there is one student
+from each of these two classes in the first column. However, class \texttt{C} can have a different color for their hats.
+The answer then becomes $2$.
+
+In the third example, we can assign each class a different color since there are no two students from different
+classes in the same column. The answer is $3$.
+
+In the last example, we can assign all students from class \texttt{A}, \texttt{B}, and \texttt{C} one color,
+and all students from class \texttt{D} and \texttt{E} another color. The answer is $2$.
