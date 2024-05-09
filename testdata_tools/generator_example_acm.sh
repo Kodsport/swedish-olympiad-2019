@@ -1,4 +1,4 @@
-#!/usr/bin/env bash
+#!/bin/bash
 USE_SCORING=0
 . ../../testdata_tools/gen.sh
 

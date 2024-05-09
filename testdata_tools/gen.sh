@@ -66,7 +66,7 @@ _base () {
 }
 
 _error () {
-  echo -e "${RED}ERROR: $1${NOCOL}" >&2
+  echo -e "${RED}ERROR: $1${NOCOL}"
   HAS_ERROR=1
 }
 
@@ -169,7 +169,7 @@ grader_flags: ignore_sample" > testdata.yaml
 # Arguments: testcase path
 solve () {
   local execmd=${programs[$SOLUTION]}
-  $execmd < $1.in > $1.ans
+  $($execmd < $1.in > $1.ans)
 }
 
 CURGROUP_NAME=.
@@ -305,8 +305,9 @@ _do_tc () {
 
 _handle_err() {
   _error "crashed while generating case $1"
-  # Stop the entire bash process. It will still run _cleanup_programs and wait
-  # for all parallel tasks for now.
+  # Kill the parent. This might fail if the other subprocesses do so at the
+  # same time, but the PID is unlikely to be reused in this window, so...
+  # Just silence the error.
   kill $$ 2>/dev/null
   exit 1
 }
@@ -366,10 +367,6 @@ tc () {
   groups[$CURGROUP_NAME]="${groups[$CURGROUP_NAME]} $name"
 
   local program="${programs[$2]}"
-  if [ ! "$program" ]; then
-    _error "missing compile command for generator \"$2\""
-    return 0
-  fi
 
   if [[ $USE_PARALLEL != 1 ]]; then
     _do_tc "$nicename" "$name" "$path" "$program" "${@:3}"

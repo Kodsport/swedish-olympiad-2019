@@ -1,4 +1,4 @@
-#!/usr/bin/env bash
+#!/bin/bash
 . ../../testdata_tools/gen.sh
 
 # Example test data generator, with comments to explain what each line does.
