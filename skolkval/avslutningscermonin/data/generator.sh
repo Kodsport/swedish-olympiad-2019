@@ -1,4 +1,5 @@
 #!/bin/bash
+REQUIRE_SAMPLE_REUSE=0
 . ../../testdata_tools/gen.sh
 
 use_solution fe_100.cpp
@@ -6,6 +7,7 @@ use_solution fe_100.cpp
 compile gen_rand.py
 
 samplegroup
+limits sample=1
 sample 1
 sample 2
 

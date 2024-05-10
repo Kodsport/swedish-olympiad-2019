@@ -1,0 +1,27 @@
+\problemname{Closing Ceremony}
+
+Several different groups are invited to sit in the front row during the closing ceremony of this year's IOI (International Olympiad in Informatics). Each person has been assigned a seat. However, the organizers of IOI didn't realize that the groups prefer to sit together, so they distributed the seats somewhat randomly. Therefore, the people decide to take matters into their own hands: by swapping seats with each other, they try to maximize the number of pairs of people from the same group sitting next to each other. The organizers would get angry if the seat swapping becomes too chaotic, so they decide that each person can switch seats at most once, and only with a person who is at most $K$ seats away. \\ \\
+What is the maximum number of pairs of people from the same group sitting next to each other that can be achieved?
+
+\section*{Input}
+The first line contains a string of length $N$ ($1 \leq N \leq 30$), describing the original row. Each letter in the string describes which group the person at the corresponding position belongs to and is either \texttt{A}, \texttt{B}, \texttt{C}, or \texttt{D}. The second line contains an integer $K$, the maximum distance people are allowed to move ($1 \leq K \leq 2$).
+
+\section*{Output}
+The program should output an integer: the maximum number of pairs of people from the same group sitting next to each other that can be achieved through valid seat swaps.
+
+\section*{Scoring}
+Your solution will be tested on a set of test case groups. To get points for a group, you must pass all test cases in that group.
+
+\noindent
+\begin{tabular}{| l | l | p{12cm} |}
+  \hline
+  \textbf{Group} & \textbf{Points} & \textbf{Constraints} \\ \hline
+  $1$    & $20$       & $K=1$, $N \leq 15$, and there are 3 groups (A, B, C). \\ \hline
+  $2$    & $40$       & $K=2$ and there are 2 groups (A, B). \\ \hline
+  $3$    & $40$       & $K=2$ and there are 4 groups (A, B, C, D). \\ \hline
+\end{tabular}
+
+\section*{Explanation of Example 1}
+In sample 1, the following arrangement can be achieved: \texttt{A B B A A A}, by swapping the first and second person, and swapping the third and fourth person. \\ \\
+\section*{Explanation of Example 2}
+In sample 2, the following arrangement can be achieved: \texttt{A A C C B B B A}, by swapping the second and third person, and swapping the fourth and sixth person.
