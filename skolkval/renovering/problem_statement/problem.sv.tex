@@ -1,11 +1,16 @@
 \problemname{Renoveringen}
+\noindent
 Johanna håller på att renovera hemma i sin lägenhet.
-Eftersom Johanna inte gillar att lämna saker åt slumpen har hon planerat in i detalj precis hur många spikar hon behöver under renoveringen.
+Eftersom Johanna inte gillar att lämna saker åt slumpen har hon planerat 
+in i detalj precis hur många spikar hon behöver under renoveringen.
 Totalt sett behöver hon $N$ spikar med längderna $x_1, x_2, \dots, x_N$.
 I hennes spiklåda har hon $M$ spikar av längderna $y_1, y_2, \dots, y_M$.
 
-Om Johanna behöver en spik med längd $x_i$ kan hon använda en spik med längd $y_j$ om $x_i \le y_j$ eftersom hon kan kapa av den längre spiken tills den är precis så lång som behövs.
-Däremot kan hon inte kombinera två korta spikar till en längre spik, eller kapa en spik flera gånger (den har ju bara ett spikhuvud).
+Om Johanna behöver en spik med längd $x_i$ kan hon använda en spik med 
+längd $y_j$ om $x_i \le y_j$ eftersom hon kan kapa av den längre spiken 
+tills den är precis så lång som behövs.
+Däremot kan hon inte kombinera två korta spikar till en längre spik, 
+eller kapa en spik flera gånger (den har ju bara ett spikhuvud).
 
 Innan Johanna ska börja med renoveringen vill hon veta:
 \begin{itemize}
@@ -13,7 +18,8 @@ Innan Johanna ska börja med renoveringen vill hon veta:
     \item vilka längder spikarna hon behöver köpa ska ha.
 \end{itemize}
 
-Hon vill köpa så få spikar som möjligt, och vill dessutom köpa spikar av så kort total längd som möjligt.
+Hon vill köpa så få spikar som möjligt, och vill dessutom 
+köpa spikar av så kort total längd som möjligt.
 
 \section*{Indata}
 På den första raden står två heltal $1 \le N \le 15$ och $1 \le M \le 15$ -- antalet spikar Johanna behöver och antalet spikar Johanna har.
@@ -25,10 +31,18 @@ Programmet ska först skriva ut ett heltal: det minsta antalet spikar Johanna be
 På nästa rad ska programmet skriva ut längderna på spikarna Johanna ska köpa, i stigande ordning.
 
 \section*{Poängsättning}
-För testfall värda $40$ poäng gäller att Johanna behöver använda alla spikar hon redan har, och dessutom inte behöver kapa någon av dessa.
+\noindent
+\begin{tabular}{| l | l | p{12cm} |}
+  \hline
+  \textbf{Grupp} & \textbf{Poäng} & \textbf{Gränser} \\ \hline
+  $1$    & $40$       & Johanna behöver använda alla spikar hon redan har, 
+  och hon behöver dessutom inte behöver kapa någon av dessa. \\ \hline
+  $2$    & $60$       & Inga ytterligare begränsningar. \\ \hline
+\end{tabular}
 
 \section*{Förklaring av exempel}
 I exempel 1 uppfyller behöver Johanna bara fylla på med tre extra spikar av längderna $13$, $28$ och $77$.
 
 I exempel 2 behöver Johanna köpa en till spik av längd $11$, och dessutom kapa en spik av längd $100$ till $50$.
-Hon skulle kunnat köpa en spik av längd $50$ och kapa spiken av längd $100$ till längd $11$, men då behöver hon köpa spikar av längre total längd.
+Hon skulle kunnat köpa en spik av längd $50$ och kapa spiken av längd $100$ till längd $11$, 
+men då behöver hon köpa spikar av längre total längd.

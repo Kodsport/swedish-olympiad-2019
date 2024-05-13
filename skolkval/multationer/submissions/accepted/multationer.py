@@ -17,7 +17,7 @@ def MLX(n,now,history):
 	if(n==0):
 		if now==goal:
 			for (s,t) in history:
-				print s, t
+				print(s, t)
 			exit(0)
 		return 
 	for s in alph:
