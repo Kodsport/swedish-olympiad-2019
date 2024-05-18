@@ -24,8 +24,8 @@ MAX_HEIGHT: int = 5
 
 grid = [[rnd.randint(1, MAX_HEIGHT) for _ in range(n)] for _ in range(n)]
 
-rows = [min(row) for row in grid]
-cols = [min((grid[j][i] for j in range(n))) for i in range(n)]
+rows = [max(row) for row in grid]
+cols = [max((grid[j][i] for j in range(n))) for i in range(n)]
 
 print(n)
 print(*rows)
