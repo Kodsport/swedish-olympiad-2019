@@ -1,8 +1,8 @@
-#!/usr/bin/python3
+#!/usr/bin/env python3
 
 import sys
 import random
-import math
+
 
 def cmdlinearg(name, default=None):
     for arg in sys.argv:
@@ -13,7 +13,8 @@ def cmdlinearg(name, default=None):
         sys.exit(1)
     return default
 
-random.seed(int(cmdlinearg('seed', sys.argv[-1])))
-maxn = int(cmdlinearg('maxn'))
+
+random.seed(int(cmdlinearg("seed", sys.argv[-1])))
+maxn = int(cmdlinearg("maxn"))
 
 print(random.randint(1, maxn))

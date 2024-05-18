@@ -1,2 +1,2 @@
-**/data/**/*.in eol=lf
-**/data/**/*.ans eol=lf
+**/data/**/*.in -diff -merge eol=lf
+**/data/**/*.ans -diff -merge eol=lf
