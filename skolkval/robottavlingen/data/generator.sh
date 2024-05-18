@@ -20,7 +20,8 @@ tc 4-g1 gen_random lo=3 hi=3
 tc_manual ../manual-tests/g1.in
 
 group 2_largeN_maxOnly 20
-limits lo=5 hi=10
+limits lo=3 hi=10
+include_group 1_smallN_maxOnly
 output_validator_flags maxOnly=yes
 tc 1-g2 gen_random lo=5 hi=10
 tc 2-g2 gen_random lo=5 hi=10
@@ -38,7 +39,8 @@ tc_manual ../manual-tests/g3.in
 tc 1
 
 group 4_largeN 40
-limits lo=5 hi=10
+limits lo=3 hi=10
+include_group 3_smallN
 tc 1-g4 gen_random lo=5 hi=10
 tc 2-g4 gen_random lo=5 hi=10
 tc 3-g4 gen_random lo=5 hi=10
