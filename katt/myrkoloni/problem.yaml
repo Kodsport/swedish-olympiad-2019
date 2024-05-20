@@ -4,4 +4,4 @@ type: scoring
 grading:
     show_test_data_groups: yes
 limits:
-    time_multiplier: 10
+    time_multiplier: 5
