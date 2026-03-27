@@ -1,0 +1,48 @@
+\problemname{Renoveringen}
+\noindent
+Johanna is renovating her apartment.
+Since Johanna does not like to leave things to chance, she has planned
+in detail exactly how many nails she needs during the renovation.
+In total, she needs $N$ nails with lengths $x_1, x_2, \dots, x_N$.
+In her nail box, she has $M$ nails of lengths $y_1, y_2, \dots, y_M$.
+
+If Johanna needs a nail with length $x_i$, she can use a nail with
+length $y_j$ if $x_i \le y_j$, since she can cut the longer nail
+until it is exactly the right length.
+However, she cannot combine two short nails into a longer nail,
+or cut a nail multiple times (it only has one nail head, after all).
+
+Before Johanna starts the renovation, she wants to know:
+\begin{itemize}
+    \item how many nails she needs to buy, and
+    \item what lengths the nails she needs to buy should have.
+\end{itemize}
+
+She wants to buy as few nails as possible, and also wants
+to buy nails of as short total length as possible.
+
+\section*{Input}
+The first line contains two integers $1 \le N \le 15$ and $1 \le M \le 15$ -- the number of nails Johanna needs and the number of nails Johanna has.
+The second line contains $N$ integers $1 \le x_1, x_2, \dots, x_N \le 100$, the lengths of the nails Johanna needs.
+The third line contains $M$ integers $1 \le y_1, y_2, \dots, y_M \le 100$, the lengths of the nails Johanna has.
+
+\section*{Output}
+The program should first print a single integer: the minimum number of nails Johanna needs to buy.
+On the next line, the program should print the lengths of the nails Johanna should buy, in increasing order.
+
+\section*{Scoring}
+\noindent
+\begin{tabular}{| l | l | p{12cm} |}
+  \hline
+  \textbf{Group} & \textbf{Points} & \textbf{Constraints} \\ \hline
+  $1$    & $40$       & Johanna needs to use all nails she already has,
+  and she does not need to cut any of them. \\ \hline
+  $2$    & $60$       & No additional constraints. \\ \hline
+\end{tabular}
+
+\section*{Explanation of Samples}
+In sample 1, Johanna only needs to supplement with three extra nails of lengths $13$, $28$, and $77$.
+
+In sample 2, Johanna needs to buy one more nail of length $11$, and also cut a nail of length $100$ to $50$.
+She could have bought a nail of length $50$ and cut the nail of length $100$ to length $11$,
+but then she would need to buy nails of greater total length.

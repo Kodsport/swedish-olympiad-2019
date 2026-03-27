@@ -1,0 +1,41 @@
+\problemname{Betygsättning}
+Pelle is a programming teacher at Pelle's Optimization School (PO School).
+He is currently grading his students in the course Optimization $1$.
+
+Grading works as follows.
+In total there are $x$ \texttt{A} criteria, $y$ \texttt{C} criteria, and $z$ \texttt{E} criteria.
+To receive the grade \texttt{E}, you must satisfy all \texttt{E} criteria.
+To receive the grade \texttt{C}, you must satisfy all \texttt{C} and \texttt{E} criteria.
+To receive the grade \texttt{A}, you must satisfy all \texttt{A}, \texttt{C}, and \texttt{E} criteria.
+
+Additionally, there are two special grades.
+If you satisfy all \texttt{E} criteria and at least half of the \texttt{C} criteria, you receive a \texttt{D}.
+If you satisfy all \texttt{E} and \texttt{C} criteria and at least half of the \texttt{A} criteria, you receive a \texttt{B}.
+
+Pelle finds grading very tedious and needs your help.
+Write a program that takes the number of \texttt{A}, \texttt{C}, and \texttt{E} criteria a certain student has satisfied and prints the grade the student should receive.
+You can assume that the student always received at least an \texttt{E} in the course.
+
+\section*{Input}
+The first line contains three integers $x, y, z$ ($1 \leq x, y, z \leq 30$), the number of \texttt{A}, \texttt{C}, and \texttt{E} criteria that exist.
+The second line contains three integers $x', y', z'$ ($0 \leq x' \leq x$, $0 \leq y' \leq y$, $0 \leq z' \leq z$), the number of \texttt{A}, \texttt{C}, and \texttt{E} criteria the student has satisfied.
+
+\section*{Output}
+Print a single letter: \texttt{A}, \texttt{B}, \texttt{C}, \texttt{D}, or \texttt{E}.
+
+\section*{Scoring}
+Your solution will be tested on a set of test groups.
+To earn points for a group, you must pass all test cases in that group.
+
+\noindent
+\begin{tabular}{| l | l | l |}
+\hline
+Group & Points & Constraints \\ \hline
+$1$     & $40$        &  The grade is \texttt{A}, \texttt{C}, or \texttt{E} \\ \hline
+$2$     & $60$        &  No additional constraints. \\ \hline
+\end{tabular}
+
+\section*{Explanation of Samples}
+In sample $1$, the student satisfies all criteria except one \texttt{A} criterion. The student therefore receives a \texttt{B}.
+
+In sample $2$, the student satisfies all \texttt{E} criteria but not half of the \texttt{C} criteria. The student therefore receives an \texttt{E}.

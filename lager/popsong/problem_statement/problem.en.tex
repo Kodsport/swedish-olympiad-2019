@@ -1,0 +1,35 @@
+\problemname{Poplåtar}
+Your band \emph{The Length-First Searchers} has written a new song.
+The music is enchanting and the lyrics are catchy, so it might very well top the charts.
+
+The only thing remaining before you and your band can go to the studio and record the song is to combine the music with the lyrics.
+You have already decided that the song should start with an intro, followed by a chorus, and end with an outro (nobody likes verses these days anyway).
+During each part of the song, you will sing a portion of the lyrics.
+During the intro and outro you can sing whatever you want, but during the chorus you must sing in a more structured way: one line of text at a time.
+To match the rhythm of the music, each line of the chorus must also have the same length.
+You do not actually have to sing anything during the intro and outro, but the chorus must consist of at least two lines.
+
+There can be very many ways to choose which parts of the lyrics belong to each section, so instead of choosing one at random, you decide to maximize the \emph{rhyme value} of the chorus.
+The rhyme value is defined as follows: let $N$ be the number of lines in the chorus and $S$ be the length of the longest common suffix that all lines share.
+Then the rhyme value equals $N \cdot S$.
+
+\section*{Input}
+The first and only line of input consists of a string, the song's lyrics.
+The string contains only lowercase letters (\texttt{a-z}) and underscores (``\texttt{\_}'').
+Its length is between $2$ and $15\,000$.
+
+\section*{Output}
+Print a single integer: the largest possible rhyme value you can achieve.
+
+\section*{Scoring}
+Your solution will be tested on a set of test groups.
+To earn points for a group, you must pass all test cases in that group.
+
+\noindent
+\begin{tabular}{| l | l | l |}
+\hline
+Group & Points & Constraints \\ \hline
+$1$   & $30$       & The string's length is at most $400$ \\ \hline
+$2$   & $30$       & The string's length is at most $4000$ \\ \hline
+$3$   & $40$       & The string's length is at most $15\,000$ \\ \hline
+\end{tabular}
