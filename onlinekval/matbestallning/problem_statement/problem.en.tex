@@ -1,0 +1,38 @@
+\problemname{Matbeställning}
+Anthony and his $n$ friends are at a restaurant and are about to order food. The menu has $m$ dishes, and all the friends have initially chosen dishes they want. Anthony, however, becomes happier the more different dishes the group orders, so that he gets to see more of what the restaurant has to offer. He would even be willing to pay for his friends' food to increase the number of different dishes ordered.
+
+Today, Anthony wants the friends to order at least $k$ different dishes. He can get a friend to switch their order to a more expensive dish by paying the price difference between the cost of the friend's original choice and the more expensive dish (but each person still orders only one thing). He can make as many such switches as he wants.
+
+Given the number of dishes, their costs, and the friends' original orders, what is the minimum Anthony needs to pay to ensure the friends order at least $k$ different dishes?
+
+\section*{Input}
+The first line contains three integers $n$, $m$ and $k$ ($1 \leq n, m \leq 2 \cdot 10^5$, $1 \le k \le \min(n, m)$), the number of friends, the number of dishes, and the desired number of unique orders. \\
+This is followed by a line with $n$ integers $x_1 \dots x_n$, where $x_i$ ($1 \leq x_i \leq m$) is the dish that friend $i$ originally wants to buy. \\
+This is followed by a line with $m$ integers $c_1 \dots c_m$, where $c_i$ ($1 \leq c_i \leq 10^9$) is the cost of dish $i$.
+
+\section*{Output}
+A single integer, the minimum amount Anthony needs to pay for the friends to order at least $k$ different dishes. If it is impossible, print $-1$. Note that the answer may not fit in a $32$-bit integer.
+
+\section*{Scoring}
+Your solution will be tested on a set of test groups.
+To earn points for a group, you must pass all test cases in that group.
+
+\noindent
+\begin{tabular}{| l | l | l |}
+\hline
+Group & Points & Constraints \\ \hline
+$1$    & $10$         & Initially, everyone wants to buy the same dish. \\ \hline
+$2$    & $20$         & $k = n$ \\ \hline
+$3$    & $16$         & $n, m \le 15$ \\ \hline
+$4$    & $23$         & $c_i = i$ for all $1 \leq i \leq m$, i.e.\ the dishes' prices are $1, 2, 3, \dots, m$ \\ \hline
+$5$    & $31$         & No additional constraints \\ \hline
+\end{tabular}
+
+\section*{Explanation of Samples}
+In the first sample, Anthony can pay $2$ kronor for friend $1$ to switch from the first to the third dish. After that, $3$ unique dishes are ordered: dish $1$, dish $2$, and dish $3$.
+
+In the second sample, there are two dishes that both cost $10$ kronor, and both friends have chosen the first dish. Since there is no dish more expensive than the first, Anthony cannot do anything to change the friends' choices, and can never achieve $2$ unique orders. The answer is thus $-1$.
+
+In the third sample, the friends already want two different dishes, so Anthony does not need to pay anything.
+
+In the last sample, Anthony wants to ensure that all $8$ friends order different dishes. The cheapest option here is to pay for friends $3$, $4$, $7$, and $8$ to upgrade to one of the $1\,000\,000\,000$-kronor dishes. In total, this costs $3\,999\,999\,990$ kronor.

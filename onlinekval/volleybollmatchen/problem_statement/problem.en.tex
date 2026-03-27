@@ -1,0 +1,43 @@
+\problemname{Volleybollmatchen}
+You have been hired by PO-Volley (the Made-Up Organization for Volleyball)
+to keep track of the score in a volleyball match between the two teams the Algorithmics and the Beaver Scouts.
+
+In volleyball you play best of $3$ sets, that is, the team
+that first wins $2$ sets wins the match. In the first two sets, you play to
+$25$ points, and if there is a third set, you play to $15$.
+You must win by $2$ points, so it is the team that first has
+at least $25$ or $15$ points respectively, and also has $2$ more points than the opponent,
+that wins the set. Given which team wins each ball, print the result of the match.
+
+\section*{Input}
+The first line contains an integer $N$ ($1 \le N \le 200$).
+Then follows a string of $N$ characters consisting of ``\texttt{A}'' and ``\texttt{B}'', describing a complete match.
+The $i$th character is ``\texttt{A}'' if the Algorithmics win the $i$th ball, and ``\texttt{B}'' if the Beaver Scouts win the $i$th ball.
+
+The match will be complete, i.e.\ one of the teams will have reached $2$ set wins at the end, and no extra balls will have been played.
+
+\section*{Output}
+Print a line with two integers. The first number should be the number of sets the Algorithmics won
+and the second number should be the number of sets the Beaver Scouts won.
+
+\section*{Scoring}
+Your solution will be tested on a set of test groups.
+To earn points for a group, you must pass all test cases in that group.
+
+\noindent
+\begin{tabular}{| l | l | l |}
+\hline
+Group & Points & Constraints \\ \hline
+$1$    & $42$          &  All sets will be won at exactly $25$, $25$, and $15$ points respectively, that is, it will never become $24$--$24$ or $14$--$14$\\ \hline
+$2$    & $58$          &  No additional constraints \\ \hline
+\end{tabular}
+
+\section*{Explanation of Samples}
+In the first sample, team A wins the first set $25$--$0$,
+team B wins the second set $0$--$25$, and team A wins the deciding
+third set $15$--$0$.
+The result of the match is thus $2$--$1$.
+
+In the second sample, team B wins both the first and second sets $25$--$27$, and the result of the match is thus $0$--$2$.
+
+Note that only the first sample could occur in test group $1$.

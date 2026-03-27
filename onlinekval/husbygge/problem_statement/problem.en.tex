@@ -1,0 +1,75 @@
+\problemname{Husbygge}
+A number of eccentrics from central New York have decided that they have had enough of modern society, and want to move away.
+Together they have bought a rectangular piece of land far away, and will now settle there.
+
+The land consists of $N \times M$ cells, and at most one house can be built on a given cell.
+Each cell has a value $a_{x,y}$ that describes how pleasant it is, on a scale between $0$ and $100$.
+
+The eccentrics' goal is to get as far away as possible from everyone else, including each other.
+The happiness an eccentric experiences from building their house on cell $(x,y)$ is thus $a_{x,y} \cdot d$,
+where $d$ is the minimum distance to any other person.
+Out of habit, the eccentrics use
+\href{https://en.wikipedia.org/wiki/Taxicab_geometry}{Manhattan distance}
+to measure this;
+$d$ is thus defined as $\min |x - x_2| + |y - y_2|$ over all other persons' cells $(x_2, y_2)$.
+
+The eccentrics now want your help with placing their houses optimally, so that the sum of
+the happiness they experience is as high as possible. Can you help them?
+
+\section*{Input}
+The input consists of $10$ test cases, described below.
+
+The first line contains the number $T$ ($0 \le T \le 10$), which describes the number of the test case ($0$ for sample).
+The second line contains the numbers $N$, $M$ and $K$ ($1 \le N, M \le 1000$, $2 \le K \le N \cdot M$) -- the height and width of the land grid, and the number of people.
+The following $N$ lines contain $M$ integers each -- the values $a_{x,y}$ ($0 \le a_{x,y} \le 100$).
+
+\section*{Output}
+Print $K$ lines with the houses' positions.
+Each line should contain two numbers: first the row for the house (between $1$ and $N$), then the column (between $1$ and $M$).
+Two houses may not be placed at the same position.
+
+\section*{Scoring}
+Your program will be tested on $10$ test cases, and scored based on how it compares to \emph{all other participants}.
+If your submission on a given test case gets a sum of happiness of $X$, and the best sum anyone has achieved on that test case is $Y$,
+then your score on that test case is $10 \cdot (X / Y)^2$, rounded to two decimal places.
+
+Your score for a submission is the sum of the scores for the test cases, and your total score is the score for the best submission.
+It is thus not possible to combine test cases between different submissions; you must submit a single program that
+maximizes your score on all test cases simultaneously.
+
+During the competition, your score will be set relative to a judge solution;
+after the competition ends, all solutions will be re-scored against the best participant solutions.
+If your solution is better than what the judges put together, it is therefore possible that you temporarily get more than $10$ points on a test case.
+Your (temporary) total score will however be capped at $100$.
+
+The sample test case will always give $0$ points.
+
+\section*{Explanation of Sample}
+In the sample, we want to place two houses on a $2 \times 3$ grid.
+The sample solution places one of the houses in the bottom-left corner and one in the top-right corner.
+Both houses' minimum distance to any other house will then be $2 + 1 = 3$,
+and the sum of happiness is thus $3 \cdot 30 + 3 \cdot 50 = 240$.
+
+If that test case had been a real test case and another participant had placed their houses
+in the top-left and bottom-right corners (which would have achieved the higher happiness $270$), then
+the test case would have been given $10 \cdot (240 / 270)^2 \approx 7.90$ points.
+
+\section*{Test cases}
+To avoid making the problem a guessing game, here are descriptions of the $10$ test cases:
+\noindent
+\begin{tabular}{| l | l | l |}
+\hline
+Test case & Constraints                       & Grid \\ \hline
+$1$       & $N = M = 100$, $K = 1000$     & All values $a_{i,j}$ are the same. \\ \hline
+$2$       & $N = M = 100$, $K = 500$      & $a_{i,j}$ is random between $0$ and $100$. \\ \hline
+$3$       & $N = 200$, $M = 1$, $K = 30$  & $a_{i,j}$ is random between $0$ and $100$. \\ \hline
+$4$       & $N = M = 1000$, $K = 40\,000$ & $a_{i,j}$ is random between $0$ and $100$. \\ \hline
+$5$       & $N = M = 100$, $K = 20$       & $a_{i,j} = \min(100, \max(0, i + r))$, where $r$ is random between $-5$ and $5$, and $i$ is the row number, zero-indexed. \\ \hline
+$6$       & $N = M = 1000$, $K = 10\,000$ & $a_{i,j} = \min(100, \max(0, \lfloor 0.101 \cdot i \rfloor + r))$, where $r$ is random between $-5$ and $5$. \\ \hline
+$7$       & $N = M = 100$, $K = 500$      & $a_{i,j} = \lfloor 100 / r \rceil$, where $r$ is a random float between $1$ and $200$. \\ \hline
+$8$       & $N = M = 100$, $K = 500$      & $a_{i,j} = \lfloor 100 / r^2 \rceil$, where $r$ is a random float between $1$ and $200$. \\ \hline
+$9$       & $N = M = 1000$, $K = 40\,000$ & $a_{i,j} = \lfloor 100 / r^2 \rceil$, where $r$ is a random float between $1$ and $200$. \\ \hline
+$10$      & $N = M = 100$, $K = 9$        & The grid consists of only $1$s with $50$ blocks of $0$s randomly placed (overlapping; most of size $10 \times 10$, some larger). \\ \hline
+\end{tabular}
+
+By random we mean \href{https://en.wikipedia.org/wiki/Continuous_uniform_distribution}{uniformly random}. $\lfloor x \rfloor$ denotes $x$ rounded down, and $\lfloor x \rceil$ denotes $x$ rounded to the nearest integer.

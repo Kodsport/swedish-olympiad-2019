@@ -1,0 +1,60 @@
+\problemname{Efterlyst}
+\noindent
+Police constable Acsel needs your help with an urgent matter, namely to catch the dangerous criminal Waxel.
+Waxel is hiding somewhere in a city consisting of $N$ different locations, numbered from $1$ to $N$, with $M$ bidirectional roads each connecting two different locations.
+He was for a long time at a certain location $X$ (it is unknown which), but then he moved to another location $Y$ (which we also do not know) by traveling along a sequence of roads.
+
+The police have collected $K$ witness statements from people who saw Waxel.
+Therefore they know that Waxel visited the locations $a_1, a_2, \dots, a_K$ on the way from $X$ to $Y$ (it is also possible that $a_i = X$ or $a_i = Y$ for some $i$).
+However, they do not know the order in which the locations were visited.
+Waxel may also have visited more than these $K$ locations on the way from $X$ to $Y$.
+
+Your task is now to help the police find the locations that could possibly be $Y$, given that Waxel took a \textbf{shortest sequence of roads}\footnote{This means that the sum of the lengths of the roads that Waxel traveled along is as small as possible.} from $X$ to $Y$.
+It is possible that there are no such locations at all, if the witness statements are not consistent with any shortest path.
+
+\section*{Input}
+The first line contains three integers:
+\begin{itemize}
+\item the number of locations in the city, $N$ ($2 \leq N \leq 2\cdot 10^5$),
+\item the number of roads in the city, $M$ ($1 \leq M \leq 2 \cdot 10^5$), and
+\item the number of witness statements, $K$ ($1 \leq K \leq N$).
+\end{itemize}
+
+The second line contains the $K$ \emph{distinct} integers $a_1, \dots, a_K$ ($1 \leq a_i \leq N$), the locations that Waxel visited.
+
+The following $M$ lines describe the roads in the city.
+The $i$th line contains three integers $u_i$, $v_i$ ($1 \leq u_i \not= v_i \le N$) and $w_i$ ($1 \leq w_i \leq 10^9$), meaning that the $i$th road connects locations $u_i$ and $v_i$ and has length $w_i$ meters.
+It is guaranteed that it is possible to travel between any two locations by following a sequence of roads, and that there is at most one road connecting each pair of locations.
+
+\section*{Output}
+On the first line, print the number of nodes that could be $Y$.
+Note that this number can be $0$.
+
+On the second line, print all nodes that could be $Y$.
+These should be printed separated by spaces in \textbf{increasing} order.
+
+\section*{Scoring}
+Your solution will be tested on a set of test groups.
+To earn points for a group, you must pass all test cases in that group.
+
+\noindent
+\begin{tabular}{| l | l | p{10cm} |}
+\hline
+Group & Points & Constraints \\ \hline
+$1$    & $5$         & There are exactly $N - 1$ roads, connecting locations $1$ and $2$, $2$ and $3$, and so on up to $N - 1$ and $N$ \\ \hline
+$2$    & $16$         & There is only one sequence of (non-repeating) roads between each pair of locations, which implies that $M = N - 1$ \\ \hline
+$3$    & $15$         & $N,M \leq 100$ \\ \hline
+$4$    & $17$         & $N,M \leq 1\,000$ \\ \hline
+$5$    & $15$         & $N,M \leq 10^5$ and $K \leq 5$ \\ \hline
+$6$    & $32$         & No additional constraints \\ \hline
+\end{tabular}
+
+\section*{Explanation of Samples}
+In sample $1$, the locations $1,2,4,5$ are possible destinations for Waxel.
+To reach $2$, he could have taken the path $5-6-1-2$.
+
+In sample $2$, there is no shortest path that passes through the given nodes.
+The answer is thus $0$.
+
+In sample $3$, there are quite many possibilities.
+To reach $2$, Waxel could for example have taken the path $6-7-5-3-1-2$.

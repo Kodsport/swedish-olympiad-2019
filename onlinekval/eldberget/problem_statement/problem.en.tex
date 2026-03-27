@@ -1,0 +1,42 @@
+\problemname{Eldberget}
+During an excursion to the fire mountains \emph{Yanar Dag} in Azerbaijan (host country for this year's International Olympiad in Informatics), you have gotten lost!
+The mountains have the shape of a grid with $R$ rows and $C$ columns.
+You are standing in the top-left corner of the grid and want to get to the excursion bus which is in the bottom-right corner.
+Since the bus is leaving soon, you want to get there as quickly as possible.
+To reach the bus, you can move to a cell directly above, to the right, below, or to the left of the one you are standing on.
+
+On the fire mountains there are however a number of flames, caused by natural gas seeping out from the mountains.
+Since you are wearing very nice clothes, you do not want to run through more flames than necessary.
+More specifically, you are willing to pass through at most $K$ flames on your way to the bus.
+
+Your task is to compute how quickly you can reach the bus if you may pass through at most $K$ flames.
+
+\section*{Input}
+The first line contains three integers $R, C, K$ ($2 \le R, C \le 100$, $0 \le K \le 200$), the number of rows and columns in the grid that the fire mountains consist of, and the number of flames you can run through.
+
+The following $R$ lines constitute a description of the fire mountains.
+The $i$th of these lines contains $C$ characters describing what the $i$th row looks like.
+Each character is either a dot (\texttt{.}) if the cell is empty or a hash (\texttt{\#}) if the cell contains a flame. The top-left cell and the bottom-right cell are always dots.
+
+\section*{Output}
+Print a single integer $N$ -- the minimum number of steps you need to reach the bus.
+If you cannot reach the destination without passing through more than $K$ flames, print ``\texttt{nej}'' instead.
+
+\section*{Scoring}
+Your solution will be tested on a set of test groups.
+To earn points for a group, you must pass all test cases in that group.
+
+\noindent
+\begin{tabular}{| l | l | l |}
+\hline
+Group & Points & Constraints \\ \hline
+$1$    & $20$        &  The group consists of a single test case with $K = 0$; the one on our poster (\url{https://www.progolymp.se/2019/affish2018.pdf}). \\ \hline
+$2$    & $7$        &  It is always possible to reach the bus, and you only need to move down or right in the grid. \\ \hline
+$3$    & $15$        &  $K = 0$ and each column consists of a fire pillar starting from the top and a fire pillar starting from the bottom. The pillars can have length $0$, and there is always at least one cell without fire in each column. \\ \hline
+$4$    & $10$        &  $K = 0$ \\ \hline
+$5$    & $19$        &  $K = 1$ \\ \hline
+$6$    & $29$       &  No additional constraints. \\ \hline
+\end{tabular}
+
+\section*{Sample}
+Note that only Sample $1$ can occur in test group $2$, and only Sample $4$ can occur in test group $3$.
